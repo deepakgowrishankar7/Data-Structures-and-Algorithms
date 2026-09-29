@@ -1,0 +1,1439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Java DSA Progress Tracker</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      /* Apple Light Palette */
+      --bg-base: #f5f5f7;
+      --bg-gradient: radial-gradient(130% 100% at 50% 0%, #ffffff 0%, #f4f5f8 40%, #eef0f5 100%);
+      --card-bg: rgba(255, 255, 255, 0.76);
+      --card-bg-hover: rgba(255, 255, 255, 0.94);
+      --card-border: rgba(0, 0, 0, 0.08);
+      --card-border-subtle: rgba(0, 0, 0, 0.04);
+      --card-inner-highlight: rgba(255, 255, 255, 0.9);
+      
+      --text-primary: #1d1d1f;
+      --text-secondary: #6e6e73;
+      --text-tertiary: #98989d;
+      
+      /* Apple System Accents */
+      --apple-blue: #0071e3;
+      --apple-blue-hover: #0077ed;
+      --apple-blue-glow: rgba(0, 113, 227, 0.28);
+      --apple-blue-subtle: rgba(0, 113, 227, 0.08);
+      
+      --apple-green: #34c759;
+      --apple-green-glow: rgba(52, 199, 89, 0.35);
+      --apple-green-subtle: rgba(52, 199, 89, 0.12);
+      
+      --apple-red: #ff3b30;
+      --apple-red-hover: #e02d23;
+      --apple-red-subtle: rgba(255, 59, 48, 0.12);
+      --apple-red-glow: rgba(255, 59, 48, 0.28);
+
+      /* Badges & Chips */
+      --easy-bg: rgba(52, 199, 89, 0.12);
+      --easy-color: #1a7f37;
+      --easy-border: rgba(52, 199, 89, 0.25);
+
+      --medium-bg: rgba(255, 149, 0, 0.12);
+      --medium-color: #b05a00;
+      --medium-border: rgba(255, 149, 0, 0.25);
+
+      --hard-bg: rgba(255, 59, 48, 0.12);
+      --hard-color: #d1242f;
+      --hard-border: rgba(255, 59, 48, 0.25);
+
+      /* Track & Details */
+      --track-bg: rgba(0, 0, 0, 0.06);
+      --checkbox-border: #b0b4bd;
+      --badge-bg: rgba(0, 0, 0, 0.04);
+      --row-hover: rgba(0, 0, 0, 0.025);
+
+      /* Shadows & Physics */
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.03);
+      --shadow-glass: 0 10px 32px -4px rgba(0, 0, 0, 0.06), 0 2px 6px -1px rgba(0, 0, 0, 0.02);
+      --shadow-glass-hover: 0 16px 40px -4px rgba(0, 0, 0, 0.1), 0 4px 12px -2px rgba(0, 0, 0, 0.04);
+      --apple-spring: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    body.dark {
+      /* Apple Dark Palette */
+      --bg-base: #000000;
+      --bg-gradient: radial-gradient(130% 100% at 50% 0%, #1c1c1e 0%, #0d0d0e 45%, #000000 100%);
+      --card-bg: rgba(28, 28, 30, 0.72);
+      --card-bg-hover: rgba(44, 44, 46, 0.85);
+      --card-border: rgba(255, 255, 255, 0.11);
+      --card-border-subtle: rgba(255, 255, 255, 0.06);
+      --card-inner-highlight: rgba(255, 255, 255, 0.1);
+
+      --text-primary: #f5f5f7;
+      --text-secondary: #98989d;
+      --text-tertiary: #636366;
+
+      --apple-blue: #0a84ff;
+      --apple-blue-hover: #409cff;
+      --apple-blue-glow: rgba(10, 132, 255, 0.4);
+      --apple-blue-subtle: rgba(10, 132, 255, 0.16);
+
+      --apple-green: #30d158;
+      --apple-green-glow: rgba(48, 209, 88, 0.4);
+      --apple-green-subtle: rgba(48, 209, 88, 0.16);
+
+      --apple-red: #ff453a;
+      --apple-red-hover: #ff6961;
+      --apple-red-subtle: rgba(255, 69, 58, 0.18);
+      --apple-red-glow: rgba(255, 69, 58, 0.35);
+
+      --easy-bg: rgba(48, 209, 88, 0.16);
+      --easy-color: #30d158;
+      --easy-border: rgba(48, 209, 88, 0.32);
+
+      --medium-bg: rgba(255, 159, 10, 0.16);
+      --medium-color: #ff9f0a;
+      --medium-border: rgba(255, 159, 10, 0.32);
+
+      --hard-bg: rgba(255, 69, 58, 0.16);
+      --hard-color: #ff453a;
+      --hard-border: rgba(255, 69, 58, 0.32);
+
+      --track-bg: rgba(255, 255, 255, 0.08);
+      --checkbox-border: #545458;
+      --badge-bg: rgba(255, 255, 255, 0.06);
+      --row-hover: rgba(255, 255, 255, 0.04);
+
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
+      --shadow-glass: 0 10px 36px rgba(0, 0, 0, 0.6), inset 0 1px 0 0 rgba(255, 255, 255, 0.08);
+      --shadow-glass-hover: 0 18px 48px rgba(0, 0, 0, 0.75), inset 0 1px 0 0 rgba(255, 255, 255, 0.14);
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background-color: var(--bg-base);
+      background-image: var(--bg-gradient);
+      background-attachment: fixed;
+      color: var(--text-primary);
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Plus Jakarta Sans", "Segoe UI", Roboto, sans-serif;
+      text-rendering: optimizeLegibility;
+      transition: background-color 0.4s var(--apple-spring), color 0.4s ease;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Ambient Apple Atmosphere Orbs */
+    body::before {
+      content: "";
+      position: fixed;
+      top: -120px;
+      right: 5%;
+      width: 550px;
+      height: 550px;
+      background: radial-gradient(circle, rgba(0, 113, 227, 0.09) 0%, transparent 68%);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 0;
+      filter: blur(40px);
+      animation: ambientFloat 18s ease-in-out infinite alternate;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      bottom: -100px;
+      left: 5%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(52, 199, 89, 0.07) 0%, transparent 68%);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 0;
+      filter: blur(45px);
+      animation: ambientFloat 22s ease-in-out infinite alternate-reverse;
+    }
+
+    body.dark::before {
+      background: radial-gradient(circle, rgba(10, 132, 255, 0.14) 0%, transparent 70%);
+    }
+
+    body.dark::after {
+      background: radial-gradient(circle, rgba(48, 209, 88, 0.1) 0%, transparent 70%);
+    }
+
+    @keyframes ambientFloat {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(30px, 40px) scale(1.08); }
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      width: min(1140px, 92%);
+      margin: 0 auto;
+      padding: 40px 0 70px;
+    }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      margin-bottom: 28px;
+      animation: appleFadeInUp 0.6s var(--apple-spring) both;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2rem, 3.2vw, 2.7rem);
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      line-height: 1.15;
+      background: linear-gradient(135deg, var(--text-primary) 20%, var(--text-secondary) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .subtitle {
+      color: var(--text-secondary);
+      margin: 8px 0 0;
+      font-size: 1rem;
+      line-height: 1.5;
+      letter-spacing: -0.01em;
+      max-width: 640px;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    /* Apple Interactive Buttons */
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border: none;
+      border-radius: 980px;
+      cursor: pointer;
+      padding: 10px 18px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      letter-spacing: -0.015em;
+      outline: none;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+      transition: transform 0.18s var(--apple-spring),
+                  background 0.25s ease,
+                  box-shadow 0.25s ease,
+                  color 0.2s ease,
+                  border-color 0.2s ease;
+    }
+
+    .button:hover {
+      transform: scale(1.025);
+    }
+
+    .button:active {
+      transform: scale(0.96) !important;
+    }
+
+    .button.primary {
+      background: linear-gradient(180deg, var(--apple-blue) 0%, #0062c4 100%);
+      color: #ffffff;
+      box-shadow: 0 4px 14px var(--apple-blue-glow), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+    }
+
+    .button.primary:hover {
+      background: linear-gradient(180deg, var(--apple-blue-hover) 0%, var(--apple-blue) 100%);
+      box-shadow: 0 6px 20px var(--apple-blue-glow), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+    }
+
+    .button.secondary {
+      background: var(--card-bg);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border: 1px solid var(--card-border);
+      color: var(--text-primary);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .button.secondary:hover {
+      background: var(--card-bg-hover);
+      border-color: rgba(0, 113, 227, 0.3);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+    }
+
+    .button.danger {
+      background: var(--apple-red-subtle);
+      color: var(--apple-red);
+      border: 1px solid var(--apple-red-subtle);
+    }
+
+    .button.danger:hover {
+      background: var(--apple-red);
+      color: #ffffff;
+      box-shadow: 0 4px 14px var(--apple-red-glow);
+    }
+
+    /* macOS Control Center Widget Dashboard */
+    .dashboard {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 24px;
+      animation: appleFadeInUp 0.65s var(--apple-spring) 0.08s both;
+    }
+
+    .card {
+      background: var(--card-bg);
+      backdrop-filter: blur(28px) saturate(190%);
+      -webkit-backdrop-filter: blur(28px) saturate(190%);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 22px 24px;
+      box-shadow: var(--shadow-glass);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.28s var(--apple-spring),
+                  box-shadow 0.28s var(--apple-spring),
+                  border-color 0.25s ease;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent 5%, var(--card-inner-highlight) 50%, transparent 95%);
+      pointer-events: none;
+    }
+
+    .card:hover {
+      transform: translateY(-2.5px);
+      box-shadow: var(--shadow-glass-hover);
+    }
+
+    .card-label {
+      margin: 0;
+      color: var(--text-secondary);
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .card-value {
+      margin: 10px 0 0;
+      font-size: 2.1rem;
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      color: var(--text-primary);
+      font-variant-numeric: tabular-nums;
+      line-height: 1.1;
+    }
+
+    /* Apple Pill Progress Bar with Liquid Shimmer */
+    .overall-bar,
+    .topic-bar {
+      width: 100%;
+      height: 8px;
+      border-radius: 999px;
+      overflow: hidden;
+      background: var(--track-bg);
+      margin-top: 14px;
+      position: relative;
+    }
+
+    .overall-bar {
+      height: 10px;
+      margin-top: 16px;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--apple-blue) 0%, var(--apple-green) 100%);
+      transition: width 0.6s var(--apple-spring);
+      position: relative;
+      box-shadow: 0 0 10px var(--apple-green-glow);
+    }
+
+    .progress-fill::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.35) 50%, transparent 100%);
+      animation: appleShimmer 2.4s infinite ease-in-out;
+    }
+
+    @keyframes appleShimmer {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+
+    /* Spotlight Search & Header Controls */
+    .controls {
+      display: grid;
+      grid-template-columns: 1fr auto auto;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 18px;
+      animation: appleFadeInUp 0.7s var(--apple-spring) 0.14s both;
+    }
+
+    #searchInput {
+      width: 100%;
+      padding: 13px 18px 13px 44px;
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      outline: none;
+      color: var(--text-primary);
+      background: var(--card-bg);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2386868b' stroke-width='2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: 15px center;
+      background-size: 18px;
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      font-size: 0.95rem;
+      letter-spacing: -0.01em;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.25s var(--apple-spring);
+    }
+
+    #searchInput:focus {
+      border-color: var(--apple-blue);
+      background-color: var(--card-bg-hover);
+      box-shadow: 0 0 0 4px var(--apple-blue-subtle), 0 6px 20px rgba(0, 0, 0, 0.06);
+    }
+
+    #searchInput::placeholder {
+      color: var(--text-tertiary);
+    }
+
+    /* Apple Segmented / Pill Filter Bar */
+    .filter-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+      animation: appleFadeInUp 0.72s var(--apple-spring) 0.18s both;
+    }
+
+    .filter-btn {
+      border: 1px solid var(--card-border);
+      background: var(--card-bg);
+      backdrop-filter: blur(16px) saturate(180%);
+      -webkit-backdrop-filter: blur(16px) saturate(180%);
+      color: var(--text-secondary);
+      border-radius: 980px;
+      cursor: pointer;
+      padding: 8px 16px;
+      font-size: 0.88rem;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      box-shadow: var(--shadow-sm);
+      outline: none;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+      transition: all 0.2s var(--apple-spring);
+    }
+
+    .filter-btn:hover {
+      color: var(--text-primary);
+      border-color: rgba(0, 113, 227, 0.3);
+      transform: translateY(-1px);
+    }
+
+    .filter-btn:active {
+      transform: scale(0.95);
+    }
+
+    .filter-btn.active {
+      color: #ffffff;
+      background: var(--apple-blue);
+      border-color: var(--apple-blue);
+      box-shadow: 0 4px 14px var(--apple-blue-glow);
+      font-weight: 600;
+    }
+
+    /* Topics Grouped Accordion (Apple iOS List Style) */
+    #topicsContainer {
+      animation: appleFadeInUp 0.75s var(--apple-spring) 0.22s both;
+    }
+
+    .topic {
+      background: var(--card-bg);
+      backdrop-filter: blur(28px) saturate(190%);
+      -webkit-backdrop-filter: blur(28px) saturate(190%);
+      border: 1px solid var(--card-border);
+      border-radius: 22px;
+      margin-bottom: 18px;
+      overflow: hidden;
+      box-shadow: var(--shadow-glass);
+      transition: transform 0.25s var(--apple-spring),
+                  box-shadow 0.25s var(--apple-spring),
+                  border-color 0.25s ease;
+    }
+
+    .topic:hover {
+      box-shadow: var(--shadow-glass-hover);
+    }
+
+    .topic-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 20px 24px 16px;
+      cursor: pointer;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+      transition: background 0.2s ease;
+    }
+
+    .topic-header:hover {
+      background: var(--row-hover);
+    }
+
+    .topic-title {
+      margin: 0;
+      font-size: 1.18rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+    }
+
+    .topic-description {
+      margin: 5px 0 0;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      letter-spacing: -0.01em;
+      line-height: 1.4;
+    }
+
+    .topic-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .topic-count {
+      color: var(--text-secondary);
+      font-size: 0.88rem;
+      font-weight: 600;
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+      background: var(--track-bg);
+      padding: 4px 12px;
+      border-radius: 980px;
+    }
+
+    /* Apple Rotating Chevron */
+    .arrow {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--track-bg);
+      color: var(--text-secondary);
+      font-size: 1.1rem;
+      line-height: 1;
+      transition: transform 0.4s var(--apple-spring),
+                  background 0.25s ease,
+                  color 0.25s ease;
+    }
+
+    .topic.open .arrow {
+      transform: rotate(180deg);
+      background: var(--apple-blue-subtle);
+      color: var(--apple-blue);
+    }
+
+    .topic-progress-area {
+      padding: 0 24px 18px;
+    }
+
+    /* Smooth Dynamic Collapsible Drawer */
+    .topic-body {
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      border-top: 1px solid transparent;
+      padding: 0 20px;
+      transition: max-height 0.45s var(--apple-spring),
+                  opacity 0.3s ease,
+                  padding 0.35s var(--apple-spring),
+                  border-color 0.25s ease;
+    }
+
+    .topic.open .topic-body {
+      max-height: 2500px;
+      opacity: 1;
+      padding: 10px 20px 20px;
+      border-top: 1px solid var(--card-border-subtle);
+    }
+
+    /* Question Row with Apple Checklist Styling */
+    .question {
+      display: grid;
+      grid-template-columns: auto 1fr auto auto;
+      gap: 14px;
+      align-items: center;
+      padding: 11px 12px;
+      border-radius: 12px;
+      border-bottom: 1px solid var(--card-border-subtle);
+      cursor: pointer;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+      transition: background 0.18s ease,
+                  transform 0.2s var(--apple-spring),
+                  opacity 0.25s ease;
+    }
+
+    .question:last-child {
+      border-bottom: none;
+    }
+
+    .question:hover {
+      background: var(--row-hover);
+      transform: translateX(4px);
+    }
+
+    /* Custom Apple Reminders-style Bouncy Checkbox */
+    .question input[type="checkbox"] {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 21px;
+      height: 21px;
+      margin: 0;
+      border: 2px solid var(--checkbox-border);
+      border-radius: 7px;
+      background: transparent;
+      cursor: pointer;
+      position: relative;
+      outline: none;
+      transition: all 0.22s var(--apple-spring);
+    }
+
+    .question input[type="checkbox"]:hover {
+      border-color: var(--apple-green);
+      transform: scale(1.1);
+    }
+
+    .question input[type="checkbox"]:checked {
+      background: var(--apple-green);
+      border-color: var(--apple-green);
+      box-shadow: 0 2px 8px var(--apple-green-glow);
+      animation: appleCheckBounce 0.38s var(--apple-spring);
+    }
+
+    .question input[type="checkbox"]::after {
+      content: "";
+      position: absolute;
+      top: 2px;
+      left: 5.5px;
+      width: 4.5px;
+      height: 9.5px;
+      border: solid #ffffff;
+      border-width: 0 2.2px 2.2px 0;
+      transform: rotate(45deg) scale(0);
+      transform-origin: center;
+      transition: transform 0.2s var(--apple-spring);
+    }
+
+    .question input[type="checkbox"]:checked::after {
+      transform: rotate(45deg) scale(1);
+    }
+
+    @keyframes appleCheckBounce {
+      0% { transform: scale(0.8); }
+      55% { transform: scale(1.22); }
+      100% { transform: scale(1); }
+    }
+
+    .question-name {
+      font-weight: 500;
+      font-size: 0.96rem;
+      letter-spacing: -0.015em;
+      line-height: 1.4;
+      color: var(--text-primary);
+      transition: opacity 0.25s ease, color 0.25s ease;
+    }
+
+    .question.completed .question-name {
+      text-decoration: line-through;
+      color: var(--text-tertiary);
+      opacity: 0.6;
+    }
+
+    /* Pattern Pill Badge */
+    .pattern {
+      color: var(--text-secondary);
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: -0.005em;
+      background: var(--badge-bg);
+      padding: 4px 10px;
+      border-radius: 8px;
+      border: 1px solid var(--card-border-subtle);
+      white-space: nowrap;
+      transition: all 0.2s ease;
+    }
+
+    /* Apple HIG Difficulty Badges */
+    .difficulty {
+      border-radius: 980px;
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      padding: 4px 11px;
+      text-align: center;
+      min-width: 68px;
+      border: 1px solid transparent;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      transition: transform 0.2s var(--apple-spring);
+    }
+
+    .difficulty:hover {
+      transform: scale(1.06);
+    }
+
+    .easy {
+      color: var(--easy-color);
+      background: var(--easy-bg);
+      border-color: var(--easy-border);
+    }
+
+    .medium {
+      color: var(--medium-color);
+      background: var(--medium-bg);
+      border-color: var(--medium-border);
+    }
+
+    .hard {
+      color: var(--hard-color);
+      background: var(--hard-bg);
+      border-color: var(--hard-border);
+    }
+
+    /* Empty State Card */
+    .empty-state {
+      display: none;
+      background: var(--card-bg);
+      backdrop-filter: blur(28px) saturate(190%);
+      -webkit-backdrop-filter: blur(28px) saturate(190%);
+      padding: 48px 30px;
+      border: 1px dashed var(--card-border);
+      border-radius: 20px;
+      text-align: center;
+      color: var(--text-secondary);
+      font-size: 0.98rem;
+      box-shadow: var(--shadow-glass);
+      animation: appleFadeInUp 0.35s var(--apple-spring);
+    }
+
+    /* Apple Minimalist Footer Note */
+    .footer-note {
+      text-align: center;
+      color: var(--text-secondary);
+      font-size: 0.88rem;
+      line-height: 1.5;
+      margin-top: 36px;
+      padding: 16px 24px;
+      background: var(--card-bg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--card-border-subtle);
+      border-radius: 16px;
+      letter-spacing: -0.01em;
+    }
+
+    /* Apple Smooth Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: rgba(0, 0, 0, 0.16);
+      border-radius: 999px;
+    }
+
+    body.dark ::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(0, 0, 0, 0.28);
+    }
+
+    body.dark ::-webkit-scrollbar-thumb:hover {
+      background: rgba(255, 255, 255, 0.35);
+    }
+
+    /* Smooth Entrance Keyframe */
+    @keyframes appleFadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive Breakpoints */
+    @media (max-width: 900px) {
+      .dashboard {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 650px) {
+      .hero {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .controls {
+        grid-template-columns: 1fr;
+      }
+
+      .dashboard {
+        grid-template-columns: 1fr;
+      }
+
+      .question {
+        grid-template-columns: auto 1fr auto;
+        gap: 10px;
+        padding: 12px 6px;
+      }
+
+      .pattern {
+        grid-column: 2 / -1;
+        justify-self: start;
+      }
+
+      .topic-header {
+        padding: 16px;
+      }
+
+      .topic-progress-area {
+        padding: 0 16px 14px;
+      }
+
+      .topic.open .topic-body {
+        padding: 8px 12px 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="container">
+    <section class="hero">
+      <div>
+        <h1>Java DSA Progress Tracker</h1>
+        <p class="subtitle">
+          Complete questions topic by topic. Your progress is saved automatically in this browser.
+        </p>
+      </div>
+
+      <button class="button secondary" id="themeButton">
+        🌙 Dark Mode
+      </button>
+    </section>
+
+    <section class="dashboard">
+      <div class="card">
+        <p class="card-label">Overall Progress</p>
+        <p class="card-value" id="overallProgressText">0 / 0</p>
+
+        <div class="overall-bar">
+          <div class="progress-fill" id="overallProgressBar"></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <p class="card-label">Completed</p>
+        <p class="card-value" id="completedCount">0</p>
+      </div>
+
+      <div class="card">
+        <p class="card-label">Remaining</p>
+        <p class="card-value" id="remainingCount">0</p>
+      </div>
+
+      <div class="card">
+        <p class="card-label">Completion Rate</p>
+        <p class="card-value" id="completionRate">0%</p>
+      </div>
+    </section>
+
+    <section class="controls">
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="Search question, topic, or pattern..."
+      />
+
+      <button class="button primary" id="expandButton">
+        Expand All
+      </button>
+
+      <button class="button danger" id="resetButton">
+        Reset Progress
+      </button>
+    </section>
+
+    <section class="filter-row">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="pending">Pending</button>
+      <button class="filter-btn" data-filter="completed">Completed</button>
+      <button class="filter-btn" data-filter="easy">Easy</button>
+      <button class="filter-btn" data-filter="medium">Medium</button>
+      <button class="filter-btn" data-filter="hard">Hard</button>
+    </section>
+
+    <section id="topicsContainer"></section>
+
+    <section class="empty-state" id="emptyState">
+      No questions found. Try another search or filter.
+    </section>
+
+    <p class="footer-note">
+      Tip: First solve easy questions, then medium questions. Write the pattern, time complexity, and your mistakes for every question.
+    </p>
+  </main>
+
+  <script>
+    const topics = [
+      {
+        name: "1. Arrays & Strings",
+        description: "Two pointers, sliding window, prefix sum, frequency counting",
+        questions: [
+          ["Two Sum", "Easy", "HashMap / Two pointers"],
+          ["Best Time to Buy and Sell Stock", "Easy", "Single pass max-min"],
+          ["Maximum Subarray (Kadane's Algorithm)", "Medium", "Kadane's algorithm"],
+          ["Move Zeroes", "Easy", "Two pointers"],
+          ["Remove Duplicates from Sorted Array", "Easy", "Two pointers"],
+          ["Rotate Array", "Easy", "Reverse technique"],
+          ["Product of Array Except Self", "Medium", "Prefix-suffix product"],
+          ["Maximum Product Subarray", "Medium", "Track min and max"],
+          ["Find All Duplicates in an Array", "Medium", "Index marking"],
+          ["Container With Most Water", "Medium", "Two pointers"],
+          ["3Sum", "Medium", "Two pointers + sorting"],
+          ["Longest Substring Without Repeating Characters", "Medium", "Sliding window + HashMap"],
+          ["Longest Repeating Character Replacement", "Medium", "Sliding window"],
+          ["Minimum Window Substring", "Hard", "Sliding window + HashMap"],
+          ["Trapping Rain Water", "Hard", "Two pointers / precomputed max"]
+        ]
+      },
+      {
+        name: "2. Hashing & Two Pointers",
+        description: "Frequency maps, sets, prefix sums, pair and triplet patterns",
+        questions: [
+          ["Contains Duplicate", "Easy", "HashSet"],
+          ["Valid Anagram", "Easy", "Frequency map"],
+          ["Longest Consecutive Sequence", "Medium", "HashSet + smart iteration"],
+          ["Subarray Sum Equals K", "Medium", "Prefix sum + HashMap"],
+          ["4Sum II", "Medium", "HashMap on pair sums"],
+          ["Group Anagrams", "Medium", "HashMap with sorted key"],
+          ["Top K Frequent Elements", "Medium", "HashMap + Heap/Bucket"],
+          ["Find All Anagrams in a String", "Medium", "Sliding window + frequency"],
+          ["Intersection of Two Arrays II", "Easy", "HashMap frequency"],
+          ["Two Sum II - Input Array Is Sorted", "Medium", "Two pointers"]
+        ]
+      },
+      {
+        name: "3. Binary Search & Sorting",
+        description: "Standard binary search, rotated arrays, binary search on answer",
+        questions: [
+          ["Binary Search", "Easy", "Standard binary search"],
+          ["Search Insert Position", "Easy", "Binary search"],
+          ["Find First and Last Position of Element", "Medium", "Binary search twice"],
+          ["Search in Rotated Sorted Array", "Medium", "Modified binary search"],
+          ["Find Minimum in Rotated Sorted Array", "Medium", "Binary search on pivot"],
+          ["Find Peak Element", "Medium", "Binary search on trend"],
+          ["Koko Eating Bananas", "Medium", "Binary search on answer"],
+          ["Capacity to Ship Packages Within D Days", "Medium", "Binary search on answer"],
+          ["Merge Intervals", "Medium", "Sorting + linear scan"],
+          ["Insert Interval", "Medium", "Sorted intervals logic"]
+        ]
+      },
+      {
+        name: "4. Linked List",
+        description: "Slow-fast pointers, reversal, merging, list manipulation",
+        questions: [
+          ["Reverse Linked List", "Easy", "Iterative / recursive reversal"],
+          ["Middle of the Linked List", "Easy", "Slow-fast pointers"],
+          ["Linked List Cycle", "Easy", "Floyd's cycle detection"],
+          ["Merge Two Sorted Lists", "Easy", "Merge logic"],
+          ["Remove Nth Node From End of List", "Medium", "Two pointers"],
+          ["Intersection of Two Linked Lists", "Easy", "Two pointers / length difference"],
+          ["Palindrome Linked List", "Easy", "Reverse half + compare"],
+          ["Add Two Numbers", "Medium", "Digit-by-digit addition"],
+          ["Copy List with Random Pointer", "Medium", "HashMap / interweaving"],
+          ["Reorder List", "Medium", "Middle + reverse + merge"]
+        ]
+      },
+      {
+        name: "5. Stack & Queue",
+        description: "ArrayDeque, monotonic stack, queue and deque patterns",
+        questions: [
+          ["Valid Parentheses", "Easy", "Stack"],
+          ["Min Stack", "Medium", "Auxiliary min stack"],
+          ["Evaluate Reverse Polish Notation", "Medium", "Stack evaluation"],
+          ["Next Greater Element I", "Easy", "Monotonic stack"],
+          ["Daily Temperatures", "Medium", "Monotonic stack"],
+          ["Largest Rectangle in Histogram", "Hard", "Monotonic stack"],
+          ["Implement Queue Using Stacks", "Easy", "Two stacks"],
+          ["Implement Stack Using Queues", "Easy", "Two queues"],
+          ["Sliding Window Maximum", "Hard", "Deque / monotonic queue"],
+          ["Design Circular Queue", "Medium", "Array / linked implementation"]
+        ]
+      },
+      {
+        name: "6. Recursion & Backtracking",
+        description: "Recursion tree, include-exclude, combinations, permutations",
+        questions: [
+          ["Subsets", "Medium", "Include-exclude pattern"],
+          ["Permutations", "Medium", "Backtracking"],
+          ["Combination Sum", "Medium", "Backtracking with reuse"],
+          ["Generate Parentheses", "Medium", "Backtracking with constraints"],
+          ["Word Search", "Medium", "DFS backtracking on grid"],
+          ["N-Queens", "Hard", "Backtracking with constraints"],
+          ["Letter Combinations of a Phone Number", "Medium", "Backtracking"],
+          ["Palindrome Partitioning", "Medium", "Backtracking + palindrome check"],
+          ["Restore IP Addresses", "Medium", "Backtracking with validation"],
+          ["Factor Combinations", "Medium", "Backtracking on factors"]
+        ]
+      },
+      {
+        name: "7. Trees & BST",
+        description: "DFS, BFS, traversals, recursion, BST properties",
+        questions: [
+          ["Binary Tree Inorder Traversal", "Easy", "DFS recursion / iteration"],
+          ["Maximum Depth of Binary Tree", "Easy", "DFS height"],
+          ["Same Tree", "Easy", "Recursive comparison"],
+          ["Invert Binary Tree", "Easy", "Swap children recursively"],
+          ["Diameter of Binary Tree", "Easy", "Height + diameter logic"],
+          ["Balanced Binary Tree", "Easy", "Height difference check"],
+          ["Binary Tree Level Order Traversal", "Medium", "BFS with queue"],
+          ["Lowest Common Ancestor of a BST", "Medium", "BST property"],
+          ["Validate Binary Search Tree", "Medium", "Range-based validation"],
+          ["Kth Smallest Element in a BST", "Medium", "Inorder traversal"],
+          ["Construct Binary Tree from Preorder and Inorder", "Medium", "Divide and conquer"],
+          ["Serialize and Deserialize Binary Tree", "Hard", "Traversal + string"],
+          ["Binary Tree Maximum Path Sum", "Hard", "DFS with global max"],
+          ["Path Sum II", "Medium", "DFS with path tracking"],
+          ["Populating Next Right Pointers in Each Node", "Medium", "Level-order linking"]
+        ]
+      },
+      {
+        name: "8. Heap & Greedy",
+        description: "PriorityQueue, top-K, intervals, greedy decisions",
+        questions: [
+          ["Kth Largest Element in an Array", "Medium", "Min-heap / Quickselect"],
+          ["Top K Frequent Elements", "Medium", "HashMap + Heap"],
+          ["K Closest Points to Origin", "Medium", "Max-heap of size K"],
+          ["Merge K Sorted Lists", "Hard", "Min-heap of heads"],
+          ["Find Median from Data Stream", "Hard", "Two heaps"],
+          ["Meeting Rooms", "Easy", "Sorting intervals"],
+          ["Meeting Rooms II", "Medium", "Min-heap for end times"],
+          ["Merge Intervals", "Medium", "Sorting + merge"],
+          ["Non-overlapping Intervals", "Medium", "Greedy by end time"],
+          ["Task Scheduler", "Medium", "Frequency + greedy"]
+        ]
+      },
+      {
+        name: "9. Graphs",
+        description: "Adjacency list, BFS, DFS, topological sort, shortest paths",
+        questions: [
+          ["Number of Islands", "Medium", "DFS / BFS on grid"],
+          ["Flood Fill", "Easy", "DFS on grid"],
+          ["Clone Graph", "Medium", "DFS + HashMap"],
+          ["Rotting Oranges", "Medium", "Multi-source BFS"],
+          ["Course Schedule", "Medium", "Topological sort / cycle detection"],
+          ["Course Schedule II", "Medium", "Topological sort order"],
+          ["Number of Provinces", "Medium", "Connected components"],
+          ["Shortest Path in Binary Matrix", "Medium", "BFS on grid"],
+          ["Network Delay Time", "Medium", "Dijkstra's algorithm"],
+          ["Graph Valid Tree", "Medium", "DFS + edge count"],
+          ["Reconstruct Itinerary", "Hard", "Eulerian path + DFS"],
+          ["Accounts Merge", "Medium", "Union-Find / DFS"]
+        ]
+      },
+      {
+        name: "10. Dynamic Programming",
+        description: "Recursion, memoization, tabulation, knapsack, strings and grids",
+        questions: [
+          ["Climbing Stairs", "Easy", "1D DP / Fibonacci pattern"],
+          ["House Robber", "Medium", "1D DP with skip/take"],
+          ["House Robber II", "Medium", "Circular 1D DP"],
+          ["Coin Change", "Medium", "Unbounded knapsack pattern"],
+          ["Longest Increasing Subsequence", "Medium", "1D DP with comparisons"],
+          ["Partition Equal Subset Sum", "Medium", "0/1 knapsack variant"],
+          ["0/1 Knapsack Problem", "Medium", "Classic 2D DP"],
+          ["Longest Common Subsequence", "Medium", "2D DP on strings"],
+          ["Edit Distance", "Hard", "2D DP with operations"],
+          ["Unique Paths", "Medium", "Grid DP"],
+          ["Minimum Path Sum", "Medium", "Grid DP with costs"],
+          ["Decode Ways", "Medium", "1D DP with conditions"],
+          ["Word Break", "Medium", "1D DP with dictionary"],
+          ["Maximum Product Subarray", "Medium", "DP with min/max tracking"],
+          ["Burst Balloons", "Hard", "Interval DP"]
+        ]
+      }
+    ];
+
+    const STORAGE_KEY = "javaDsaTrackerCompleted";
+    const THEME_KEY = "javaDsaTrackerTheme";
+
+    let activeFilter = "all";
+    let searchText = "";
+    let completedQuestions = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+
+    const topicsContainer = document.getElementById("topicsContainer");
+    const emptyState = document.getElementById("emptyState");
+    const searchInput = document.getElementById("searchInput");
+    const overallProgressText = document.getElementById("overallProgressText");
+    const overallProgressBar = document.getElementById("overallProgressBar");
+    const completedCount = document.getElementById("completedCount");
+    const remainingCount = document.getElementById("remainingCount");
+    const completionRate = document.getElementById("completionRate");
+    const expandButton = document.getElementById("expandButton");
+    const themeButton = document.getElementById("themeButton");
+
+    function createQuestionId(topicIndex, questionIndex) {
+      return `topic-${topicIndex}-question-${questionIndex}`;
+    }
+
+    function saveProgress() {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(completedQuestions));
+    }
+
+    function getAllQuestions() {
+      const allQuestions = [];
+
+      topics.forEach((topic, topicIndex) => {
+        topic.questions.forEach((question, questionIndex) => {
+          allQuestions.push({
+            id: createQuestionId(topicIndex, questionIndex),
+            topic: topic.name,
+            name: question[0],
+            difficulty: question[1],
+            pattern: question[2]
+          });
+        });
+      });
+
+      return allQuestions;
+    }
+
+    function matchesFilter(question) {
+      const isCompleted = completedQuestions[question.id] === true;
+
+      if (activeFilter === "completed" && !isCompleted) {
+        return false;
+      }
+
+      if (activeFilter === "pending" && isCompleted) {
+        return false;
+      }
+
+      if (
+        ["easy", "medium", "hard"].includes(activeFilter) &&
+        question.difficulty.toLowerCase() !== activeFilter
+      ) {
+        return false;
+      }
+
+      const searchableText = `
+        ${question.name}
+        ${question.topic}
+        ${question.pattern}
+        ${question.difficulty}
+      `.toLowerCase();
+
+      return searchableText.includes(searchText.toLowerCase());
+    }
+
+    function updateDashboard() {
+      const allQuestions = getAllQuestions();
+      const completed = allQuestions.filter(
+        question => completedQuestions[question.id]
+      ).length;
+
+      const total = allQuestions.length;
+      const remaining = total - completed;
+      const percentage = total === 0 ? 0 : Math.round((completed / total) * 100);
+
+      overallProgressText.textContent = `${completed} / ${total}`;
+      completedCount.textContent = completed;
+      remainingCount.textContent = remaining;
+      completionRate.textContent = `${percentage}%`;
+      overallProgressBar.style.width = `${percentage}%`;
+    }
+    // Track open state for each topic so accordion states are preserved during updates
+    let openTopicIndices = new Set(topics.map((_, i) => i));
+
+    function renderTopics() {
+      topicsContainer.innerHTML = "";
+      let visibleQuestionCount = 0;
+
+      topics.forEach((topic, topicIndex) => {
+        const visibleQuestions = topic.questions
+          .map((question, questionIndex) => ({
+            id: createQuestionId(topicIndex, questionIndex),
+            name: question[0],
+            difficulty: question[1],
+            pattern: question[2],
+            topic: topic.name,
+            questionIndex
+          }))
+          .filter(matchesFilter);
+
+        if (visibleQuestions.length === 0) {
+          return;
+        }
+
+        visibleQuestionCount += visibleQuestions.length;
+
+        const totalInTopic = topic.questions.length;
+        const completedInTopic = topic.questions.filter((_, questionIndex) => {
+          const id = createQuestionId(topicIndex, questionIndex);
+          return completedQuestions[id];
+        }).length;
+
+        const topicPercentage = Math.round(
+          (completedInTopic / totalInTopic) * 100
+        );
+
+        const isOpen = openTopicIndices.has(topicIndex);
+        const topicElement = document.createElement("article");
+        topicElement.className = `topic ${isOpen ? "open" : ""}`;
+        topicElement.dataset.topicIndex = topicIndex;
+
+        const questionsHTML = visibleQuestions
+          .map(question => {
+            const isCompleted = completedQuestions[question.id] === true;
+            const difficultyClass = question.difficulty.toLowerCase();
+
+            return `
+              <label class="question ${isCompleted ? "completed" : ""}">
+                <input
+                  type="checkbox"
+                  data-question-id="${question.id}"
+                  ${isCompleted ? "checked" : ""}
+                />
+
+                <span class="question-name">${question.name}</span>
+
+                <span class="difficulty ${difficultyClass}">
+                  ${question.difficulty}
+                </span>
+
+                <span class="pattern">${question.pattern}</span>
+              </label>
+            `;
+          })
+          .join("");
+
+        topicElement.innerHTML = `
+          <div class="topic-header">
+            <div>
+              <h2 class="topic-title">${topic.name}</h2>
+              <p class="topic-description">${topic.description}</p>
+            </div>
+
+            <div class="topic-right">
+              <span class="topic-count">
+                ${completedInTopic} / ${totalInTopic} completed
+              </span>
+              <span class="arrow">⌄</span>
+            </div>
+          </div>
+
+          <div class="topic-progress-area">
+            <div class="topic-bar">
+              <div
+                class="progress-fill"
+                style="width: ${topicPercentage}%"
+              ></div>
+            </div>
+          </div>
+
+          <div class="topic-body">
+            ${questionsHTML}
+          </div>
+        `;
+
+        const header = topicElement.querySelector(".topic-header");
+
+        header.addEventListener("click", () => {
+          const willBeOpen = !topicElement.classList.contains("open");
+          topicElement.classList.toggle("open", willBeOpen);
+          if (willBeOpen) {
+            openTopicIndices.add(topicIndex);
+          } else {
+            openTopicIndices.delete(topicIndex);
+          }
+        });
+
+        topicsContainer.appendChild(topicElement);
+      });
+
+      emptyState.style.display = visibleQuestionCount === 0 ? "block" : "none";
+
+      document.querySelectorAll('input[type="checkbox"][data-question-id]')
+        .forEach(checkbox => {
+          checkbox.addEventListener("change", event => {
+            event.stopPropagation();
+
+            const questionId = checkbox.dataset.questionId;
+            const isChecked = checkbox.checked;
+            completedQuestions[questionId] = isChecked;
+
+            saveProgress();
+            updateDashboard();
+
+            // Smooth inline visual update
+            const questionRow = checkbox.closest(".question");
+            if (questionRow) {
+              questionRow.classList.toggle("completed", isChecked);
+            }
+
+            // Smoothly update this topic's counter and progress bar
+            const currentTopic = checkbox.closest(".topic");
+            if (currentTopic) {
+              const allBoxes = currentTopic.querySelectorAll('input[type="checkbox"]');
+              const checkedBoxes = currentTopic.querySelectorAll('input[type="checkbox"]:checked');
+              const pct = allBoxes.length === 0 ? 0 : Math.round((checkedBoxes.length / allBoxes.length) * 100);
+              
+              const countEl = currentTopic.querySelector(".topic-count");
+              if (countEl) {
+                countEl.textContent = `${checkedBoxes.length} / ${allBoxes.length} completed`;
+              }
+              const fillEl = currentTopic.querySelector(".topic-progress-area .progress-fill");
+              if (fillEl) {
+                fillEl.style.width = `${pct}%`;
+              }
+            }
+
+            // If filtered by pending or completed, delay re-render slightly to show check animation
+            if (activeFilter === "completed" || activeFilter === "pending") {
+              setTimeout(() => {
+                renderTopics();
+              }, 280);
+            }
+          });
+        });
+    }
+
+    function renderApp() {
+      updateDashboard();
+      renderTopics();
+    }
+
+    searchInput.addEventListener("input", event => {
+      searchText = event.target.value.trim();
+      renderTopics();
+    });
+
+    document.querySelectorAll(".filter-btn").forEach(button => {
+      button.addEventListener("click", () => {
+        document.querySelectorAll(".filter-btn").forEach(btn => {
+          btn.classList.remove("active");
+        });
+
+        button.classList.add("active");
+        activeFilter = button.dataset.filter;
+        renderTopics();
+      });
+    });
+
+    expandButton.addEventListener("click", () => {
+      const allTopics = document.querySelectorAll(".topic");
+      const shouldExpand = expandButton.textContent.trim() === "Expand All";
+
+      if (shouldExpand) {
+        openTopicIndices = new Set(topics.map((_, i) => i));
+      } else {
+        openTopicIndices.clear();
+      }
+
+      allTopics.forEach(topic => {
+        topic.classList.toggle("open", shouldExpand);
+      });
+
+      expandButton.textContent = shouldExpand ? "Collapse All" : "Expand All";
+    });
+
+    document.getElementById("resetButton").addEventListener("click", () => {
+      const confirmed = confirm(
+        "Do you want to reset all completed questions? This cannot be undone."
+      );
+
+      if (confirmed) {
+        completedQuestions = {};
+        saveProgress();
+        renderApp();
+      }
+    });
+
+    function loadTheme() {
+      const savedTheme = localStorage.getItem(THEME_KEY);
+
+      if (savedTheme === "dark") {
+        document.body.classList.add("dark");
+        themeButton.textContent = "☀️ Light Mode";
+      }
+    }
+
+    themeButton.addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+
+      const isDark = document.body.classList.contains("dark");
+
+      localStorage.setItem(THEME_KEY, isDark ? "dark" : "light");
+      themeButton.textContent = isDark ? "☀️ Light Mode" : "🌙 Dark Mode";
+    });
+
+    loadTheme();
+    renderApp();
+  </script>
+</body>
+</html>
