@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Java DSA Progress Tracker</title>
+  <title>Fresher DSA Interview Roadmap & Tracker</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -14,8 +14,8 @@
       /* Apple Light Palette */
       --bg-base: #f5f5f7;
       --bg-gradient: radial-gradient(130% 100% at 50% 0%, #ffffff 0%, #f4f5f8 40%, #eef0f5 100%);
-      --card-bg: rgba(255, 255, 255, 0.76);
-      --card-bg-hover: rgba(255, 255, 255, 0.94);
+      --card-bg: rgba(255, 255, 255, 0.78);
+      --card-bg-hover: rgba(255, 255, 255, 0.95);
       --card-border: rgba(0, 0, 0, 0.08);
       --card-border-subtle: rgba(0, 0, 0, 0.04);
       --card-inner-highlight: rgba(255, 255, 255, 0.9);
@@ -24,7 +24,7 @@
       --text-secondary: #6e6e73;
       --text-tertiary: #98989d;
       
-      /* Apple System Accents */
+      /* Apple Accents */
       --apple-blue: #0071e3;
       --apple-blue-hover: #0077ed;
       --apple-blue-glow: rgba(0, 113, 227, 0.28);
@@ -39,26 +39,47 @@
       --apple-red-subtle: rgba(255, 59, 48, 0.12);
       --apple-red-glow: rgba(255, 59, 48, 0.28);
 
-      /* Badges & Chips */
+      --apple-purple: #af52de;
+      --apple-purple-subtle: rgba(175, 82, 222, 0.12);
+      --apple-purple-border: rgba(175, 82, 222, 0.26);
+
+      --apple-amber: #f5a623;
+      --apple-amber-subtle: rgba(245, 166, 35, 0.14);
+      --apple-amber-border: rgba(245, 166, 35, 0.28);
+
+      /* Difficulty Badges */
       --easy-bg: rgba(52, 199, 89, 0.12);
       --easy-color: #1a7f37;
-      --easy-border: rgba(52, 199, 89, 0.25);
+      --easy-border: rgba(52, 199, 89, 0.28);
 
       --medium-bg: rgba(255, 149, 0, 0.12);
       --medium-color: #b05a00;
-      --medium-border: rgba(255, 149, 0, 0.25);
+      --medium-border: rgba(255, 149, 0, 0.28);
 
       --hard-bg: rgba(255, 59, 48, 0.12);
       --hard-color: #d1242f;
-      --hard-border: rgba(255, 59, 48, 0.25);
+      --hard-border: rgba(255, 59, 48, 0.28);
 
-      /* Track & Details */
+      /* Tier Badges */
+      --tier-base-bg: rgba(0, 113, 227, 0.09);
+      --tier-base-color: #0062c4;
+      --tier-base-border: rgba(0, 113, 227, 0.24);
+
+      --tier-product-bg: rgba(175, 82, 222, 0.11);
+      --tier-product-color: #892cb8;
+      --tier-product-border: rgba(175, 82, 222, 0.26);
+
+      --tier-faang-bg: rgba(255, 45, 85, 0.1);
+      --tier-faang-color: #d91b4c;
+      --tier-faang-border: rgba(255, 45, 85, 0.28);
+
+      /* Track & UI Elements */
       --track-bg: rgba(0, 0, 0, 0.06);
       --checkbox-border: #b0b4bd;
       --badge-bg: rgba(0, 0, 0, 0.04);
-      --row-hover: rgba(0, 0, 0, 0.025);
+      --row-hover: rgba(0, 0, 0, 0.03);
 
-      /* Shadows & Physics */
+      /* Shadows */
       --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.03);
       --shadow-glass: 0 10px 32px -4px rgba(0, 0, 0, 0.06), 0 2px 6px -1px rgba(0, 0, 0, 0.02);
       --shadow-glass-hover: 0 16px 40px -4px rgba(0, 0, 0, 0.1), 0 4px 12px -2px rgba(0, 0, 0, 0.04);
@@ -69,8 +90,8 @@
       /* Apple Dark Palette */
       --bg-base: #000000;
       --bg-gradient: radial-gradient(130% 100% at 50% 0%, #1c1c1e 0%, #0d0d0e 45%, #000000 100%);
-      --card-bg: rgba(28, 28, 30, 0.72);
-      --card-bg-hover: rgba(44, 44, 46, 0.85);
+      --card-bg: rgba(28, 28, 30, 0.74);
+      --card-bg-hover: rgba(44, 44, 46, 0.88);
       --card-border: rgba(255, 255, 255, 0.11);
       --card-border-subtle: rgba(255, 255, 255, 0.06);
       --card-inner-highlight: rgba(255, 255, 255, 0.1);
@@ -93,6 +114,10 @@
       --apple-red-subtle: rgba(255, 69, 58, 0.18);
       --apple-red-glow: rgba(255, 69, 58, 0.35);
 
+      --apple-purple: #bf5af2;
+      --apple-purple-subtle: rgba(191, 90, 242, 0.18);
+      --apple-purple-border: rgba(191, 90, 242, 0.35);
+
       --easy-bg: rgba(48, 209, 88, 0.16);
       --easy-color: #30d158;
       --easy-border: rgba(48, 209, 88, 0.32);
@@ -105,10 +130,22 @@
       --hard-color: #ff453a;
       --hard-border: rgba(255, 69, 58, 0.32);
 
+      --tier-base-bg: rgba(10, 132, 255, 0.16);
+      --tier-base-color: #5ac8fa;
+      --tier-base-border: rgba(90, 200, 250, 0.32);
+
+      --tier-product-bg: rgba(191, 90, 242, 0.18);
+      --tier-product-color: #d175ff;
+      --tier-product-border: rgba(191, 90, 242, 0.35);
+
+      --tier-faang-bg: rgba(255, 55, 95, 0.18);
+      --tier-faang-color: #ff4d79;
+      --tier-faang-border: rgba(255, 55, 95, 0.36);
+
       --track-bg: rgba(255, 255, 255, 0.08);
       --checkbox-border: #545458;
       --badge-bg: rgba(255, 255, 255, 0.06);
-      --row-hover: rgba(255, 255, 255, 0.04);
+      --row-hover: rgba(255, 255, 255, 0.045);
 
       --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
       --shadow-glass: 0 10px 36px rgba(0, 0, 0, 0.6), inset 0 1px 0 0 rgba(255, 255, 255, 0.08);
@@ -135,14 +172,14 @@
       overflow-x: hidden;
     }
 
-    /* Ambient Apple Atmosphere Orbs */
+    /* Ambient Orbs */
     body::before {
       content: "";
       position: fixed;
       top: -120px;
       right: 5%;
-      width: 550px;
-      height: 550px;
+      width: 580px;
+      height: 580px;
       background: radial-gradient(circle, rgba(0, 113, 227, 0.09) 0%, transparent 68%);
       border-radius: 50%;
       pointer-events: none;
@@ -154,10 +191,10 @@
     body::after {
       content: "";
       position: fixed;
-      bottom: -100px;
+      bottom: -120px;
       left: 5%;
-      width: 500px;
-      height: 500px;
+      width: 520px;
+      height: 520px;
       background: radial-gradient(circle, rgba(52, 199, 89, 0.07) 0%, transparent 68%);
       border-radius: 50%;
       pointer-events: none;
@@ -182,9 +219,9 @@
     .container {
       position: relative;
       z-index: 1;
-      width: min(1140px, 92%);
+      width: min(1180px, 94%);
       margin: 0 auto;
-      padding: 40px 0 70px;
+      padding: 36px 0 80px;
     }
 
     /* Hero Section */
@@ -193,8 +230,24 @@
       justify-content: space-between;
       align-items: center;
       gap: 24px;
-      margin-bottom: 28px;
+      margin-bottom: 24px;
       animation: appleFadeInUp 0.6s var(--apple-spring) both;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      background: var(--apple-blue-subtle);
+      border: 1px solid var(--apple-blue-glow);
+      border-radius: 980px;
+      color: var(--apple-blue);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
     }
 
     h1 {
@@ -211,10 +264,10 @@
     .subtitle {
       color: var(--text-secondary);
       margin: 8px 0 0;
-      font-size: 1rem;
+      font-size: 0.98rem;
       line-height: 1.5;
       letter-spacing: -0.01em;
-      max-width: 640px;
+      max-width: 680px;
     }
 
     button,
@@ -222,7 +275,7 @@
       font: inherit;
     }
 
-    /* Apple Interactive Buttons */
+    /* Apple Buttons */
     .button {
       display: inline-flex;
       align-items: center;
@@ -231,8 +284,8 @@
       border: none;
       border-radius: 980px;
       cursor: pointer;
-      padding: 10px 18px;
-      font-size: 0.92rem;
+      padding: 9px 18px;
+      font-size: 0.9rem;
       font-weight: 600;
       letter-spacing: -0.015em;
       outline: none;
@@ -259,11 +312,6 @@
       box-shadow: 0 4px 14px var(--apple-blue-glow), inset 0 1px 0 rgba(255, 255, 255, 0.25);
     }
 
-    .button.primary:hover {
-      background: linear-gradient(180deg, var(--apple-blue-hover) 0%, var(--apple-blue) 100%);
-      box-shadow: 0 6px 20px var(--apple-blue-glow), inset 0 1px 0 rgba(255, 255, 255, 0.35);
-    }
-
     .button.secondary {
       background: var(--card-bg);
       backdrop-filter: blur(20px) saturate(180%);
@@ -276,7 +324,6 @@
     .button.secondary:hover {
       background: var(--card-bg-hover);
       border-color: rgba(0, 113, 227, 0.3);
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
     }
 
     .button.danger {
@@ -291,12 +338,12 @@
       box-shadow: 0 4px 14px var(--apple-red-glow);
     }
 
-    /* macOS Control Center Widget Dashboard */
+    /* Overall Dashboard Cards */
     .dashboard {
       display: grid;
       grid-template-columns: 1.4fr 1fr 1fr 1fr;
-      gap: 16px;
-      margin-bottom: 24px;
+      gap: 14px;
+      margin-bottom: 20px;
       animation: appleFadeInUp 0.65s var(--apple-spring) 0.08s both;
     }
 
@@ -306,7 +353,7 @@
       -webkit-backdrop-filter: blur(28px) saturate(190%);
       border: 1px solid var(--card-border);
       border-radius: 20px;
-      padding: 22px 24px;
+      padding: 18px 22px;
       box-shadow: var(--shadow-glass);
       position: relative;
       overflow: hidden;
@@ -327,22 +374,22 @@
     }
 
     .card:hover {
-      transform: translateY(-2.5px);
+      transform: translateY(-2px);
       box-shadow: var(--shadow-glass-hover);
     }
 
     .card-label {
       margin: 0;
       color: var(--text-secondary);
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.06em;
     }
 
     .card-value {
-      margin: 10px 0 0;
-      font-size: 2.1rem;
+      margin: 8px 0 0;
+      font-size: 2rem;
       font-weight: 800;
       letter-spacing: -0.035em;
       color: var(--text-primary);
@@ -350,21 +397,93 @@
       line-height: 1.1;
     }
 
-    /* Apple Pill Progress Bar with Liquid Shimmer */
+    /* Company Tier Readiness Tracker Bar */
+    .tier-readiness-bar {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 22px;
+      animation: appleFadeInUp 0.68s var(--apple-spring) 0.12s both;
+    }
+
+    .tier-stat-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(24px) saturate(180%);
+      -webkit-backdrop-filter: blur(24px) saturate(180%);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 14px 18px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      transition: all 0.2s var(--apple-spring);
+    }
+
+    .tier-stat-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .tier-stat-title {
+      font-size: 0.84rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .tier-stat-count {
+      font-size: 0.86rem;
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+      color: var(--text-secondary);
+    }
+
+    .tier-stat-progress {
+      width: 100%;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--track-bg);
+      overflow: hidden;
+    }
+
+    .tier-stat-fill {
+      height: 100%;
+      width: 0%;
+      border-radius: inherit;
+      transition: width 0.5s var(--apple-spring);
+    }
+
+    .tier-stat-fill.base {
+      background: linear-gradient(90deg, #0071e3, #5ac8fa);
+    }
+
+    .tier-stat-fill.product {
+      background: linear-gradient(90deg, #af52de, #ff9500);
+    }
+
+    .tier-stat-fill.faang {
+      background: linear-gradient(90deg, #ff2d55, #34c759);
+    }
+
+    /* Overall Pill Progress Bar with Liquid Shimmer */
     .overall-bar,
     .topic-bar {
       width: 100%;
-      height: 8px;
+      height: 7px;
       border-radius: 999px;
       overflow: hidden;
       background: var(--track-bg);
-      margin-top: 14px;
+      margin-top: 12px;
       position: relative;
     }
 
     .overall-bar {
-      height: 10px;
-      margin-top: 16px;
+      height: 9px;
+      margin-top: 14px;
     }
 
     .progress-fill {
@@ -393,19 +512,19 @@
       100% { transform: translateX(100%); }
     }
 
-    /* Spotlight Search & Header Controls */
+    /* Spotlight Search & Controls */
     .controls {
       display: grid;
       grid-template-columns: 1fr auto auto;
       gap: 12px;
       align-items: center;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
       animation: appleFadeInUp 0.7s var(--apple-spring) 0.14s both;
     }
 
     #searchInput {
       width: 100%;
-      padding: 13px 18px 13px 44px;
+      padding: 12px 18px 12px 42px;
       border: 1px solid var(--card-border);
       border-radius: 14px;
       outline: none;
@@ -413,11 +532,11 @@
       background: var(--card-bg);
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2386868b' stroke-width='2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z'/%3E%3C/svg%3E");
       background-repeat: no-repeat;
-      background-position: 15px center;
+      background-position: 14px center;
       background-size: 18px;
       backdrop-filter: blur(20px) saturate(180%);
       -webkit-backdrop-filter: blur(20px) saturate(180%);
-      font-size: 0.95rem;
+      font-size: 0.94rem;
       letter-spacing: -0.01em;
       box-shadow: var(--shadow-sm);
       transition: all 0.25s var(--apple-spring);
@@ -433,13 +552,29 @@
       color: var(--text-tertiary);
     }
 
-    /* Apple Segmented / Pill Filter Bar */
+    /* Dual Filter Control Rows (Company Tier + Status & Difficulty) */
+    .filter-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 24px;
+      animation: appleFadeInUp 0.72s var(--apple-spring) 0.18s both;
+    }
+
     .filter-row {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      margin-bottom: 24px;
-      animation: appleFadeInUp 0.72s var(--apple-spring) 0.18s both;
+      align-items: center;
+    }
+
+    .filter-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-tertiary);
+      margin-right: 4px;
     }
 
     .filter-btn {
@@ -450,8 +585,8 @@
       color: var(--text-secondary);
       border-radius: 980px;
       cursor: pointer;
-      padding: 8px 16px;
-      font-size: 0.88rem;
+      padding: 6px 14px;
+      font-size: 0.84rem;
       font-weight: 500;
       letter-spacing: -0.01em;
       box-shadow: var(--shadow-sm);
@@ -468,18 +603,36 @@
     }
 
     .filter-btn:active {
-      transform: scale(0.95);
+      transform: scale(0.96);
     }
 
     .filter-btn.active {
       color: #ffffff;
       background: var(--apple-blue);
       border-color: var(--apple-blue);
-      box-shadow: 0 4px 14px var(--apple-blue-glow);
+      box-shadow: 0 3px 12px var(--apple-blue-glow);
       font-weight: 600;
     }
 
-    /* Topics Grouped Accordion (Apple iOS List Style) */
+    .filter-btn.tier-active-base {
+      background: #0071e3 !important;
+      border-color: #0071e3 !important;
+      color: #fff !important;
+    }
+
+    .filter-btn.tier-active-product {
+      background: #af52de !important;
+      border-color: #af52de !important;
+      color: #fff !important;
+    }
+
+    .filter-btn.tier-active-faang {
+      background: #ff2d55 !important;
+      border-color: #ff2d55 !important;
+      color: #fff !important;
+    }
+
+    /* Topics Grouped Accordion */
     #topicsContainer {
       animation: appleFadeInUp 0.75s var(--apple-spring) 0.22s both;
     }
@@ -489,8 +642,8 @@
       backdrop-filter: blur(28px) saturate(190%);
       -webkit-backdrop-filter: blur(28px) saturate(190%);
       border: 1px solid var(--card-border);
-      border-radius: 22px;
-      margin-bottom: 18px;
+      border-radius: 20px;
+      margin-bottom: 16px;
       overflow: hidden;
       box-shadow: var(--shadow-glass);
       transition: transform 0.25s var(--apple-spring),
@@ -507,7 +660,7 @@
       align-items: center;
       justify-content: space-between;
       gap: 16px;
-      padding: 20px 24px 16px;
+      padding: 18px 22px 14px;
       cursor: pointer;
       user-select: none;
       -webkit-tap-highlight-color: transparent;
@@ -520,16 +673,16 @@
 
     .topic-title {
       margin: 0;
-      font-size: 1.18rem;
+      font-size: 1.15rem;
       font-weight: 700;
       letter-spacing: -0.02em;
       color: var(--text-primary);
     }
 
     .topic-description {
-      margin: 5px 0 0;
+      margin: 4px 0 0;
       color: var(--text-secondary);
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       letter-spacing: -0.01em;
       line-height: 1.4;
     }
@@ -537,33 +690,32 @@
     .topic-right {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
     }
 
     .topic-count {
       color: var(--text-secondary);
-      font-size: 0.88rem;
+      font-size: 0.84rem;
       font-weight: 600;
       font-variant-numeric: tabular-nums;
       white-space: nowrap;
       background: var(--track-bg);
-      padding: 4px 12px;
+      padding: 4px 11px;
       border-radius: 980px;
     }
 
-    /* Apple Rotating Chevron */
     .arrow {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 28px;
-      height: 28px;
+      width: 26px;
+      height: 26px;
       border-radius: 50%;
       background: var(--track-bg);
       color: var(--text-secondary);
-      font-size: 1.1rem;
+      font-size: 1rem;
       line-height: 1;
-      transition: transform 0.4s var(--apple-spring),
+      transition: transform 0.38s var(--apple-spring),
                   background 0.25s ease,
                   color 0.25s ease;
     }
@@ -575,16 +727,15 @@
     }
 
     .topic-progress-area {
-      padding: 0 24px 18px;
+      padding: 0 22px 16px;
     }
 
-    /* Smooth Dynamic Collapsible Drawer */
     .topic-body {
       max-height: 0;
       opacity: 0;
       overflow: hidden;
       border-top: 1px solid transparent;
-      padding: 0 20px;
+      padding: 0 18px;
       transition: max-height 0.45s var(--apple-spring),
                   opacity 0.3s ease,
                   padding 0.35s var(--apple-spring),
@@ -592,19 +743,19 @@
     }
 
     .topic.open .topic-body {
-      max-height: 2500px;
+      max-height: 2800px;
       opacity: 1;
-      padding: 10px 20px 20px;
+      padding: 8px 18px 18px;
       border-top: 1px solid var(--card-border-subtle);
     }
 
     /* Question Row with Apple Checklist Styling */
     .question {
       display: grid;
-      grid-template-columns: auto 1fr auto auto;
-      gap: 14px;
+      grid-template-columns: auto 1fr auto auto auto auto;
+      gap: 12px;
       align-items: center;
-      padding: 11px 12px;
+      padding: 10px 12px;
       border-radius: 12px;
       border-bottom: 1px solid var(--card-border-subtle);
       cursor: pointer;
@@ -621,18 +772,18 @@
 
     .question:hover {
       background: var(--row-hover);
-      transform: translateX(4px);
+      transform: translateX(3px);
     }
 
-    /* Custom Apple Reminders-style Bouncy Checkbox */
+    /* Custom Apple Bouncy Checkbox */
     .question input[type="checkbox"] {
       appearance: none;
       -webkit-appearance: none;
-      width: 21px;
-      height: 21px;
+      width: 20px;
+      height: 20px;
       margin: 0;
       border: 2px solid var(--checkbox-border);
-      border-radius: 7px;
+      border-radius: 6px;
       background: transparent;
       cursor: pointer;
       position: relative;
@@ -656,9 +807,9 @@
       content: "";
       position: absolute;
       top: 2px;
-      left: 5.5px;
-      width: 4.5px;
-      height: 9.5px;
+      left: 5px;
+      width: 4px;
+      height: 9px;
       border: solid #ffffff;
       border-width: 0 2.2px 2.2px 0;
       transform: rotate(45deg) scale(0);
@@ -676,13 +827,23 @@
       100% { transform: scale(1); }
     }
 
+    .question-info {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      min-width: 0;
+    }
+
     .question-name {
       font-weight: 500;
-      font-size: 0.96rem;
+      font-size: 0.94rem;
       letter-spacing: -0.015em;
-      line-height: 1.4;
+      line-height: 1.35;
       color: var(--text-primary);
       transition: opacity 0.25s ease, color 0.25s ease;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .question.completed .question-name {
@@ -691,29 +852,79 @@
       opacity: 0.6;
     }
 
+    /* LeetCode Direct Solve Link */
+    .solve-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-tertiary);
+      text-decoration: none;
+      font-size: 0.78rem;
+      padding: 3px 6px;
+      border-radius: 6px;
+      transition: color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+    }
+
+    .solve-link:hover {
+      color: var(--apple-blue);
+      background: var(--apple-blue-subtle);
+      transform: scale(1.1);
+    }
+
+    /* Company Tier Badge */
+    .tier-badge {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      padding: 3px 9px;
+      border-radius: 980px;
+      white-space: nowrap;
+      border: 1px solid transparent;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+    }
+
+    .tier-badge.base {
+      color: var(--tier-base-color);
+      background: var(--tier-base-bg);
+      border-color: var(--tier-base-border);
+    }
+
+    .tier-badge.product {
+      color: var(--tier-product-color);
+      background: var(--tier-product-bg);
+      border-color: var(--tier-product-border);
+    }
+
+    .tier-badge.faang {
+      color: var(--tier-faang-color);
+      background: var(--tier-faang-bg);
+      border-color: var(--tier-faang-border);
+    }
+
     /* Pattern Pill Badge */
     .pattern {
       color: var(--text-secondary);
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       font-weight: 500;
       letter-spacing: -0.005em;
       background: var(--badge-bg);
-      padding: 4px 10px;
-      border-radius: 8px;
+      padding: 3px 9px;
+      border-radius: 7px;
       border: 1px solid var(--card-border-subtle);
       white-space: nowrap;
       transition: all 0.2s ease;
     }
 
-    /* Apple HIG Difficulty Badges */
+    /* Difficulty Badges */
     .difficulty {
       border-radius: 980px;
-      font-size: 0.74rem;
+      font-size: 0.72rem;
       font-weight: 700;
       letter-spacing: 0.02em;
-      padding: 4px 11px;
+      padding: 3px 10px;
       text-align: center;
-      min-width: 68px;
+      min-width: 62px;
       border: 1px solid transparent;
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
@@ -721,7 +932,7 @@
     }
 
     .difficulty:hover {
-      transform: scale(1.06);
+      transform: scale(1.05);
     }
 
     .easy {
@@ -753,28 +964,73 @@
       border-radius: 20px;
       text-align: center;
       color: var(--text-secondary);
-      font-size: 0.98rem;
+      font-size: 0.95rem;
       box-shadow: var(--shadow-glass);
       animation: appleFadeInUp 0.35s var(--apple-spring);
     }
 
-    /* Apple Minimalist Footer Note */
-    .footer-note {
-      text-align: center;
-      color: var(--text-secondary);
-      font-size: 0.88rem;
-      line-height: 1.5;
+    /* Strategy Footer Card */
+    .footer-strategy {
       margin-top: 36px;
-      padding: 16px 24px;
+      padding: 24px 28px;
       background: var(--card-bg);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       border: 1px solid var(--card-border-subtle);
-      border-radius: 16px;
-      letter-spacing: -0.01em;
+      border-radius: 20px;
+      box-shadow: var(--shadow-sm);
     }
 
-    /* Apple Smooth Scrollbar */
+    .footer-strategy h3 {
+      margin: 0 0 8px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .footer-strategy p {
+      margin: 0 0 12px;
+      color: var(--text-secondary);
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+
+    .strategy-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .strategy-pill {
+      background: var(--track-bg);
+      padding: 10px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--card-border-subtle);
+      font-size: 0.82rem;
+      line-height: 1.4;
+      color: var(--text-secondary);
+    }
+
+    .strategy-pill strong {
+      display: block;
+      color: var(--text-primary);
+      margin-bottom: 2px;
+    }
+
+    /* Smooth Entrance Keyframe */
+    @keyframes appleFadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(16px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Scrollbars */
     ::-webkit-scrollbar {
       width: 8px;
       height: 8px;
@@ -793,34 +1049,20 @@
       background: rgba(255, 255, 255, 0.2);
     }
 
-    ::-webkit-scrollbar-thumb:hover {
-      background: rgba(0, 0, 0, 0.28);
-    }
-
-    body.dark ::-webkit-scrollbar-thumb:hover {
-      background: rgba(255, 255, 255, 0.35);
-    }
-
-    /* Smooth Entrance Keyframe */
-    @keyframes appleFadeInUp {
-      0% {
-        opacity: 0;
-        transform: translateY(18px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
     /* Responsive Breakpoints */
-    @media (max-width: 900px) {
+    @media (max-width: 950px) {
       .dashboard {
         grid-template-columns: repeat(2, 1fr);
       }
+      .tier-readiness-bar {
+        grid-template-columns: 1fr;
+      }
+      .strategy-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
-    @media (max-width: 650px) {
+    @media (max-width: 720px) {
       .hero {
         align-items: flex-start;
         flex-direction: column;
@@ -837,25 +1079,26 @@
 
       .question {
         grid-template-columns: auto 1fr auto;
-        gap: 10px;
-        padding: 12px 6px;
+        gap: 8px;
+        padding: 10px 8px;
       }
 
+      .tier-badge,
       .pattern {
         grid-column: 2 / -1;
         justify-self: start;
       }
 
       .topic-header {
-        padding: 16px;
+        padding: 14px 16px;
       }
 
       .topic-progress-area {
-        padding: 0 16px 14px;
+        padding: 0 16px 12px;
       }
 
       .topic.open .topic-body {
-        padding: 8px 12px 16px;
+        padding: 6px 12px 14px;
       }
     }
   </style>
@@ -865,9 +1108,10 @@
   <main class="container">
     <section class="hero">
       <div>
+        <div class="hero-badge">🎯 Fresher Placement Mastery</div>
         <h1>Java DSA Progress Tracker</h1>
         <p class="subtitle">
-          Complete questions topic by topic. Your progress is saved automatically in this browser.
+          Master 120 curated interview problems across 12 fundamental concepts. Graded systematically from <strong>Base Companies (TCS / Infosys)</strong> to <strong>Product Startups (Zoho / Swiggy)</strong> and <strong>Top Tech (Google / Amazon)</strong>.
         </p>
       </div>
 
@@ -876,11 +1120,11 @@
       </button>
     </section>
 
+    <!-- Top KPI Dashboard -->
     <section class="dashboard">
       <div class="card">
-        <p class="card-label">Overall Progress</p>
-        <p class="card-value" id="overallProgressText">0 / 0</p>
-
+        <p class="card-label">Overall Mastery</p>
+        <p class="card-value" id="overallProgressText">0 / 120</p>
         <div class="overall-bar">
           <div class="progress-fill" id="overallProgressBar"></div>
         </div>
@@ -888,25 +1132,59 @@
 
       <div class="card">
         <p class="card-label">Completed</p>
-        <p class="card-value" id="completedCount">0</p>
+        <p class="card-value" id="completedCount" style="color: var(--apple-green);">0</p>
       </div>
 
       <div class="card">
         <p class="card-label">Remaining</p>
-        <p class="card-value" id="remainingCount">0</p>
+        <p class="card-value" id="remainingCount" style="color: var(--text-secondary);">120</p>
       </div>
 
       <div class="card">
-        <p class="card-label">Completion Rate</p>
+        <p class="card-label">Readiness Rate</p>
         <p class="card-value" id="completionRate">0%</p>
       </div>
     </section>
 
+    <!-- Company Tier Readiness Bar -->
+    <section class="tier-readiness-bar">
+      <div class="tier-stat-card">
+        <div class="tier-stat-header">
+          <span class="tier-stat-title">🏢 Base Companies (TCS, Infosys, Wipro)</span>
+          <span class="tier-stat-count" id="tierBaseCount">0 / 0</span>
+        </div>
+        <div class="tier-stat-progress">
+          <div class="tier-stat-fill base" id="tierBaseBar"></div>
+        </div>
+      </div>
+
+      <div class="tier-stat-card">
+        <div class="tier-stat-header">
+          <span class="tier-stat-title">🚀 Product Startups (Zoho, Swiggy, Razorpay)</span>
+          <span class="tier-stat-count" id="tierProductCount">0 / 0</span>
+        </div>
+        <div class="tier-stat-progress">
+          <div class="tier-stat-fill product" id="tierProductBar"></div>
+        </div>
+      </div>
+
+      <div class="tier-stat-card">
+        <div class="tier-stat-header">
+          <span class="tier-stat-title">🏆 Top Tech / FAANG (Google, Amazon, Meta)</span>
+          <span class="tier-stat-count" id="tierFaangCount">0 / 0</span>
+        </div>
+        <div class="tier-stat-progress">
+          <div class="tier-stat-fill faang" id="tierFaangBar"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Spotlight Search & Actions -->
     <section class="controls">
       <input
         type="text"
         id="searchInput"
-        placeholder="Search question, topic, or pattern..."
+        placeholder="Search questions, company tiers, patterns, or algorithms..."
       />
 
       <button class="button primary" id="expandButton">
@@ -918,203 +1196,251 @@
       </button>
     </section>
 
-    <section class="filter-row">
-      <button class="filter-btn active" data-filter="all">All</button>
-      <button class="filter-btn" data-filter="pending">Pending</button>
-      <button class="filter-btn" data-filter="completed">Completed</button>
-      <button class="filter-btn" data-filter="easy">Easy</button>
-      <button class="filter-btn" data-filter="medium">Medium</button>
-      <button class="filter-btn" data-filter="hard">Hard</button>
-    </section>
+    <!-- Multi-dimensional Filter Bar -->
+    <div class="filter-wrapper">
+      <!-- Company Tier Filter -->
+      <div class="filter-row">
+        <span class="filter-label">Target Tier:</span>
+        <button class="filter-btn active" data-tier="all">All Tiers</button>
+        <button class="filter-btn" data-tier="base">🏢 Base Companies</button>
+        <button class="filter-btn" data-tier="product">🚀 Product Startups</button>
+        <button class="filter-btn" data-tier="faang">🏆 Top Tech / FAANG</button>
+      </div>
 
+      <!-- Difficulty & Status Filter -->
+      <div class="filter-row">
+        <span class="filter-label">Difficulty & Status:</span>
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="pending">Pending</button>
+        <button class="filter-btn" data-filter="completed">Completed</button>
+        <button class="filter-btn" data-filter="easy">🟢 Easy</button>
+        <button class="filter-btn" data-filter="medium">🟠 Medium</button>
+        <button class="filter-btn" data-filter="hard">🔴 Hard</button>
+      </div>
+    </div>
+
+    <!-- Topics Container -->
     <section id="topicsContainer"></section>
 
     <section class="empty-state" id="emptyState">
-      No questions found. Try another search or filter.
+      No questions found matching your active filters or search terms. Try clearing some filters.
     </section>
 
-    <p class="footer-note">
-      Tip: First solve easy questions, then medium questions. Write the pattern, time complexity, and your mistakes for every question.
-    </p>
+    <!-- Strategy Footer Guide -->
+    <div class="footer-strategy">
+      <h3>💡 Fresher Interview Roadmap & Strategy</h3>
+      <p>
+        Do not rush to hard questions immediately. Build intuitive muscle memory step-by-step:
+      </p>
+      <div class="strategy-grid">
+        <div class="strategy-pill">
+          <strong>Phase 1: Base Tier Mastery</strong>
+          Solve all Easy questions in Arrays, Two Pointers, Strings, and Hashing. Ensures 100% clearance of Online Assessment (OA) coding rounds.
+        </div>
+        <div class="strategy-pill">
+          <strong>Phase 2: Product Tier Problem Solving</strong>
+          Master Medium questions in Sliding Window, Stacks, Binary Trees, and Binary Search. This clears technical interview rounds for high-paying startups.
+        </div>
+        <div class="strategy-pill">
+          <strong>Phase 3: Top Tech Edge</strong>
+          Tackle standard Dynamic Programming, Graphs (BFS/DFS/Topological Sort), and Heaps. Formulates clear explanations of time and space complexities.
+        </div>
+      </div>
+    </div>
   </main>
 
   <script>
     const topics = [
       {
-        name: "1. Arrays & Strings",
-        description: "Two pointers, sliding window, prefix sum, frequency counting",
+        name: "1. Two Pointers",
+        description: "Opposite ends, fast & slow pointers, in-place array manipulation (10 questions)",
         questions: [
-          ["Two Sum", "Easy", "HashMap / Two pointers"],
-          ["Best Time to Buy and Sell Stock", "Easy", "Single pass max-min"],
-          ["Maximum Subarray (Kadane's Algorithm)", "Medium", "Kadane's algorithm"],
-          ["Move Zeroes", "Easy", "Two pointers"],
-          ["Remove Duplicates from Sorted Array", "Easy", "Two pointers"],
-          ["Rotate Array", "Easy", "Reverse technique"],
-          ["Product of Array Except Self", "Medium", "Prefix-suffix product"],
-          ["Maximum Product Subarray", "Medium", "Track min and max"],
-          ["Find All Duplicates in an Array", "Medium", "Index marking"],
-          ["Container With Most Water", "Medium", "Two pointers"],
-          ["3Sum", "Medium", "Two pointers + sorting"],
-          ["Longest Substring Without Repeating Characters", "Medium", "Sliding window + HashMap"],
-          ["Longest Repeating Character Replacement", "Medium", "Sliding window"],
-          ["Minimum Window Substring", "Hard", "Sliding window + HashMap"],
-          ["Trapping Rain Water", "Hard", "Two pointers / precomputed max"]
+          ["Valid Palindrome", "Easy", "Opposite ends comparison", "Base", "valid-palindrome"],
+          ["Reverse String", "Easy", "In-place swapping", "Base", "reverse-string"],
+          ["Move Zeroes", "Easy", "Fast & slow write-pointer", "Base", "move-zeroes"],
+          ["Remove Duplicates from Sorted Array", "Easy", "In-place overwrite", "Base", "remove-duplicates-from-sorted-array"],
+          ["Two Sum II - Input Array Is Sorted", "Medium", "Sorted two pointers inward", "Product", "two-sum-ii-input-array-is-sorted"],
+          ["Container With Most Water", "Medium", "Shrinking max area window", "Product", "container-with-most-water"],
+          ["3Sum", "Medium", "Sorting + two pointers loop", "Product", "3sum"],
+          ["Sort Colors (Dutch National Flag)", "Medium", "3-pointer partition", "Product", "sort-colors"],
+          ["4Sum", "Medium", "Nested two pointers with pruning", "Product", "4sum"],
+          ["Trapping Rain Water", "Hard", "Dual pointer height bounds", "FAANG", "trapping-rain-water"]
         ]
       },
       {
-        name: "2. Hashing & Two Pointers",
-        description: "Frequency maps, sets, prefix sums, pair and triplet patterns",
+        name: "2. Sliding Window",
+        description: "Fixed and dynamic windows, frequency matching, monotonic window limits (10 questions)",
         questions: [
-          ["Contains Duplicate", "Easy", "HashSet"],
-          ["Valid Anagram", "Easy", "Frequency map"],
-          ["Longest Consecutive Sequence", "Medium", "HashSet + smart iteration"],
-          ["Subarray Sum Equals K", "Medium", "Prefix sum + HashMap"],
-          ["4Sum II", "Medium", "HashMap on pair sums"],
-          ["Group Anagrams", "Medium", "HashMap with sorted key"],
-          ["Top K Frequent Elements", "Medium", "HashMap + Heap/Bucket"],
-          ["Find All Anagrams in a String", "Medium", "Sliding window + frequency"],
-          ["Intersection of Two Arrays II", "Easy", "HashMap frequency"],
-          ["Two Sum II - Input Array Is Sorted", "Medium", "Two pointers"]
+          ["Maximum Average Subarray I", "Easy", "Fixed-size window sum", "Base", "maximum-average-subarray-i"],
+          ["Defuse the Bomb", "Easy", "Circular sliding window", "Base", "defuse-the-bomb"],
+          ["Maximum Sum of Distinct Subarrays With Length K", "Medium", "Fixed window + frequency set", "Product", "maximum-sum-of-distinct-subarrays-with-length-k"],
+          ["Longest Substring Without Repeating Characters", "Medium", "Dynamic window + HashMap", "Product", "longest-substring-without-repeating-characters"],
+          ["Fruit Into Baskets", "Medium", "At most 2 distinct elements window", "Product", "fruit-into-baskets"],
+          ["Longest Repeating Character Replacement", "Medium", "Window size vs max frequency", "Product", "longest-repeating-character-replacement"],
+          ["Max Consecutive Ones III", "Medium", "Sliding window with at most K flips", "Product", "max-consecutive-ones-iii"],
+          ["Find All Anagrams in a String", "Medium", "Sliding frequency map", "Product", "find-all-anagrams-in-a-string"],
+          ["Minimum Window Substring", "Hard", "Sliding window with requirement map", "FAANG", "minimum-window-substring"],
+          ["Sliding Window Maximum", "Hard", "Monotonic double-ended queue", "FAANG", "sliding-window-maximum"]
         ]
       },
       {
-        name: "3. Binary Search & Sorting",
-        description: "Standard binary search, rotated arrays, binary search on answer",
+        name: "3. Arrays, Prefix Sum & Hashing",
+        description: "Frequency maps, running sums, hash-based lookups, index marking (10 questions)",
         questions: [
-          ["Binary Search", "Easy", "Standard binary search"],
-          ["Search Insert Position", "Easy", "Binary search"],
-          ["Find First and Last Position of Element", "Medium", "Binary search twice"],
-          ["Search in Rotated Sorted Array", "Medium", "Modified binary search"],
-          ["Find Minimum in Rotated Sorted Array", "Medium", "Binary search on pivot"],
-          ["Find Peak Element", "Medium", "Binary search on trend"],
-          ["Koko Eating Bananas", "Medium", "Binary search on answer"],
-          ["Capacity to Ship Packages Within D Days", "Medium", "Binary search on answer"],
-          ["Merge Intervals", "Medium", "Sorting + linear scan"],
-          ["Insert Interval", "Medium", "Sorted intervals logic"]
+          ["Two Sum", "Easy", "Single-pass HashMap", "Base", "two-sum"],
+          ["Contains Duplicate", "Easy", "HashSet lookup", "Base", "contains-duplicate"],
+          ["Running Sum of 1d Array", "Easy", "Running cumulative sum", "Base", "running-sum-of-1d-array"],
+          ["Valid Anagram", "Easy", "Frequency array count", "Base", "valid-anagram"],
+          ["Product of Array Except Self", "Medium", "Prefix & suffix products", "Product", "product-of-array-except-self"],
+          ["Subarray Sum Equals K", "Medium", "Prefix sum + frequency map", "Product", "subarray-sum-equals-k"],
+          ["Group Anagrams", "Medium", "HashMap with sorted string key", "Product", "group-anagrams"],
+          ["Longest Consecutive Sequence", "Medium", "HashSet sequence start skip", "Product", "longest-consecutive-sequence"],
+          ["Continuous Subarray Sum", "Medium", "Prefix sum remainder modulo K", "Product", "continuous-subarray-sum"],
+          ["First Missing Positive", "Hard", "In-place index cycle hashing", "FAANG", "first-missing-positive"]
         ]
       },
       {
-        name: "4. Linked List",
-        description: "Slow-fast pointers, reversal, merging, list manipulation",
+        name: "4. Binary Search",
+        description: "Boundary detection, sorted array rotations, binary search on answer space (10 questions)",
         questions: [
-          ["Reverse Linked List", "Easy", "Iterative / recursive reversal"],
-          ["Middle of the Linked List", "Easy", "Slow-fast pointers"],
-          ["Linked List Cycle", "Easy", "Floyd's cycle detection"],
-          ["Merge Two Sorted Lists", "Easy", "Merge logic"],
-          ["Remove Nth Node From End of List", "Medium", "Two pointers"],
-          ["Intersection of Two Linked Lists", "Easy", "Two pointers / length difference"],
-          ["Palindrome Linked List", "Easy", "Reverse half + compare"],
-          ["Add Two Numbers", "Medium", "Digit-by-digit addition"],
-          ["Copy List with Random Pointer", "Medium", "HashMap / interweaving"],
-          ["Reorder List", "Medium", "Middle + reverse + merge"]
+          ["Binary Search", "Easy", "Standard iterative search", "Base", "binary-search"],
+          ["Search Insert Position", "Easy", "Lower-bound binary search", "Base", "search-insert-position"],
+          ["First Bad Version", "Easy", "Binary search on condition boundary", "Base", "first-bad-version"],
+          ["Find First and Last Position of Element", "Medium", "Dual binary search (left & right)", "Product", "find-first-and-last-position-of-element-in-sorted-array"],
+          ["Search in Rotated Sorted Array", "Medium", "Identify sorted half", "Product", "search-in-rotated-sorted-array"],
+          ["Find Minimum in Rotated Sorted Array", "Medium", "Search inflection pivot", "Product", "find-minimum-in-rotated-sorted-array"],
+          ["Find Peak Element", "Medium", "Binary search on trend slope", "Product", "find-peak-element"],
+          ["Koko Eating Bananas", "Medium", "Binary search on answer range", "Product", "koko-eating-bananas"],
+          ["Capacity To Ship Packages Within D Days", "Medium", "Binary search on answer range", "Product", "capacity-to-ship-packages-within-d-days"],
+          ["Median of Two Sorted Arrays", "Hard", "Binary search partition of two arrays", "FAANG", "median-of-two-sorted-arrays"]
         ]
       },
       {
-        name: "5. Stack & Queue",
-        description: "ArrayDeque, monotonic stack, queue and deque patterns",
+        name: "5. Linked List",
+        description: "Pointer manipulation, slow-fast detection, recursive and iterative reversal (10 questions)",
         questions: [
-          ["Valid Parentheses", "Easy", "Stack"],
-          ["Min Stack", "Medium", "Auxiliary min stack"],
-          ["Evaluate Reverse Polish Notation", "Medium", "Stack evaluation"],
-          ["Next Greater Element I", "Easy", "Monotonic stack"],
-          ["Daily Temperatures", "Medium", "Monotonic stack"],
-          ["Largest Rectangle in Histogram", "Hard", "Monotonic stack"],
-          ["Implement Queue Using Stacks", "Easy", "Two stacks"],
-          ["Implement Stack Using Queues", "Easy", "Two queues"],
-          ["Sliding Window Maximum", "Hard", "Deque / monotonic queue"],
-          ["Design Circular Queue", "Medium", "Array / linked implementation"]
+          ["Reverse Linked List", "Easy", "Iterative 3-pointer reversal", "Base", "reverse-linked-list"],
+          ["Middle of the Linked List", "Easy", "Tortoise and Hare fast-slow", "Base", "middle-of-the-linked-list"],
+          ["Linked List Cycle", "Easy", "Floyd's cycle detection", "Base", "linked-list-cycle"],
+          ["Merge Two Sorted Lists", "Easy", "Dummy head merge", "Base", "merge-two-sorted-lists"],
+          ["Delete Node in a Linked List", "Easy", "Next node value overwrite", "Base", "delete-node-in-a-linked-list"],
+          ["Remove Nth Node From End of List", "Medium", "Two pointers with N-gap delay", "Product", "remove-nth-node-from-end-of-list"],
+          ["Add Two Numbers", "Medium", "Node-by-node addition with carry", "Product", "add-two-numbers"],
+          ["Reorder List", "Medium", "Midpoint + reverse + interleave", "Product", "reorder-list"],
+          ["Copy List with Random Pointer", "Medium", "Interweaving nodes / HashMap", "Product", "copy-list-with-random-pointer"],
+          ["Merge k Sorted Lists", "Hard", "PriorityQueue (Min-Heap) of heads", "FAANG", "merge-k-sorted-lists"]
         ]
       },
       {
-        name: "6. Recursion & Backtracking",
-        description: "Recursion tree, include-exclude, combinations, permutations",
+        name: "6. Stacks & Queues",
+        description: "LIFO/FIFO evaluation, monotonic stacks, sliding window deques, LRU cache (10 questions)",
         questions: [
-          ["Subsets", "Medium", "Include-exclude pattern"],
-          ["Permutations", "Medium", "Backtracking"],
-          ["Combination Sum", "Medium", "Backtracking with reuse"],
-          ["Generate Parentheses", "Medium", "Backtracking with constraints"],
-          ["Word Search", "Medium", "DFS backtracking on grid"],
-          ["N-Queens", "Hard", "Backtracking with constraints"],
-          ["Letter Combinations of a Phone Number", "Medium", "Backtracking"],
-          ["Palindrome Partitioning", "Medium", "Backtracking + palindrome check"],
-          ["Restore IP Addresses", "Medium", "Backtracking with validation"],
-          ["Factor Combinations", "Medium", "Backtracking on factors"]
+          ["Valid Parentheses", "Easy", "LIFO character matching", "Base", "valid-parentheses"],
+          ["Implement Queue using Stacks", "Easy", "Amortized O(1) dual stacks", "Base", "implement-queue-using-stacks"],
+          ["Next Greater Element I", "Easy", "Monotonic stack + HashMap", "Base", "next-greater-element-i"],
+          ["Min Stack", "Medium", "Auxiliary stack for running minimum", "Product", "min-stack"],
+          ["Evaluate Reverse Polish Notation", "Medium", "Stack operand evaluation", "Product", "evaluate-reverse-polish-notation"],
+          ["Daily Temperatures", "Medium", "Monotonic decreasing stack of indices", "Product", "daily-temperatures"],
+          ["Online Stock Span", "Medium", "Monotonic stack with aggregated weights", "Product", "online-stock-span"],
+          ["Decode String", "Medium", "Dual stacks (counts & strings)", "Product", "decode-string"],
+          ["LRU Cache", "Medium", "HashMap + Doubly Linked List", "FAANG", "lru-cache"],
+          ["Largest Rectangle in Histogram", "Hard", "Monotonic stack width expansion", "FAANG", "largest-rectangle-in-histogram"]
         ]
       },
       {
-        name: "7. Trees & BST",
-        description: "DFS, BFS, traversals, recursion, BST properties",
+        name: "7. Binary Trees & BST",
+        description: "DFS/BFS traversals, lowest common ancestor, validation, tree diameters (10 questions)",
         questions: [
-          ["Binary Tree Inorder Traversal", "Easy", "DFS recursion / iteration"],
-          ["Maximum Depth of Binary Tree", "Easy", "DFS height"],
-          ["Same Tree", "Easy", "Recursive comparison"],
-          ["Invert Binary Tree", "Easy", "Swap children recursively"],
-          ["Diameter of Binary Tree", "Easy", "Height + diameter logic"],
-          ["Balanced Binary Tree", "Easy", "Height difference check"],
-          ["Binary Tree Level Order Traversal", "Medium", "BFS with queue"],
-          ["Lowest Common Ancestor of a BST", "Medium", "BST property"],
-          ["Validate Binary Search Tree", "Medium", "Range-based validation"],
-          ["Kth Smallest Element in a BST", "Medium", "Inorder traversal"],
-          ["Construct Binary Tree from Preorder and Inorder", "Medium", "Divide and conquer"],
-          ["Serialize and Deserialize Binary Tree", "Hard", "Traversal + string"],
-          ["Binary Tree Maximum Path Sum", "Hard", "DFS with global max"],
-          ["Path Sum II", "Medium", "DFS with path tracking"],
-          ["Populating Next Right Pointers in Each Node", "Medium", "Level-order linking"]
+          ["Invert Binary Tree", "Easy", "Recursive swap left and right", "Base", "invert-binary-tree"],
+          ["Maximum Depth of Binary Tree", "Easy", "DFS height calculation", "Base", "maximum-depth-of-binary-tree"],
+          ["Diameter of Binary Tree", "Easy", "Global diameter tracking with height DFS", "Base", "diameter-of-binary-tree"],
+          ["Symmetric Tree", "Easy", "Dual mirror recursion", "Base", "symmetric-tree"],
+          ["Binary Tree Level Order Traversal", "Medium", "BFS queue level-by-level", "Product", "binary-tree-level-order-traversal"],
+          ["Lowest Common Ancestor of a BST", "Medium", "BST value search bifurcation", "Product", "lowest-common-ancestor-of-a-binary-search-tree"],
+          ["Validate Binary Search Tree", "Medium", "Min-Max range propagation DFS", "Product", "validate-binary-search-tree"],
+          ["Kth Smallest Element in a BST", "Medium", "Inorder traversal counter", "Product", "kth-smallest-element-in-a-bst"],
+          ["Binary Tree Right Side View", "Medium", "BFS / DFS rightmost level node", "Product", "binary-tree-right-side-view"],
+          ["Binary Tree Maximum Path Sum", "Hard", "Postorder DFS with global path sum", "FAANG", "binary-tree-maximum-path-sum"]
         ]
       },
       {
-        name: "8. Heap & Greedy",
-        description: "PriorityQueue, top-K, intervals, greedy decisions",
+        name: "8. Heaps & Priority Queues",
+        description: "Top-K selection, dual heap streams, scheduling, frequency ordering (10 questions)",
         questions: [
-          ["Kth Largest Element in an Array", "Medium", "Min-heap / Quickselect"],
-          ["Top K Frequent Elements", "Medium", "HashMap + Heap"],
-          ["K Closest Points to Origin", "Medium", "Max-heap of size K"],
-          ["Merge K Sorted Lists", "Hard", "Min-heap of heads"],
-          ["Find Median from Data Stream", "Hard", "Two heaps"],
-          ["Meeting Rooms", "Easy", "Sorting intervals"],
-          ["Meeting Rooms II", "Medium", "Min-heap for end times"],
-          ["Merge Intervals", "Medium", "Sorting + merge"],
-          ["Non-overlapping Intervals", "Medium", "Greedy by end time"],
-          ["Task Scheduler", "Medium", "Frequency + greedy"]
+          ["Last Stone Weight", "Easy", "Max-heap simulation", "Base", "last-stone-weight"],
+          ["Kth Largest Element in an Array", "Medium", "Min-heap of size K / Quickselect", "Product", "kth-largest-element-in-an-array"],
+          ["Top K Frequent Elements", "Medium", "Frequency Map + Min-Heap", "Product", "top-k-frequent-elements"],
+          ["K Closest Points to Origin", "Medium", "Max-heap with Euclidean distance", "Product", "k-closest-points-to-origin"],
+          ["Sort Characters By Frequency", "Medium", "Max-heap / bucket frequency sort", "Product", "sort-characters-by-frequency"],
+          ["Kth Smallest Element in a Sorted Matrix", "Medium", "PriorityQueue coordinate expansion", "Product", "kth-smallest-element-in-a-sorted-matrix"],
+          ["Task Scheduler", "Medium", "Max-heap + cooldown queue", "Product", "task-scheduler"],
+          ["Reorganize String", "Medium", "Greedy max-heap pair picking", "Product", "reorganize-string"],
+          ["Find Median from Data Stream", "Hard", "Two balanced heaps (Max & Min)", "FAANG", "find-median-from-data-stream"],
+          ["IPO", "Hard", "Dual heaps (capital min-heap + profit max-heap)", "FAANG", "ipo"]
         ]
       },
       {
-        name: "9. Graphs",
-        description: "Adjacency list, BFS, DFS, topological sort, shortest paths",
+        name: "9. Recursion & Backtracking",
+        description: "Include/exclude decision trees, permutations, pruning, grid search (10 questions)",
         questions: [
-          ["Number of Islands", "Medium", "DFS / BFS on grid"],
-          ["Flood Fill", "Easy", "DFS on grid"],
-          ["Clone Graph", "Medium", "DFS + HashMap"],
-          ["Rotting Oranges", "Medium", "Multi-source BFS"],
-          ["Course Schedule", "Medium", "Topological sort / cycle detection"],
-          ["Course Schedule II", "Medium", "Topological sort order"],
-          ["Number of Provinces", "Medium", "Connected components"],
-          ["Shortest Path in Binary Matrix", "Medium", "BFS on grid"],
-          ["Network Delay Time", "Medium", "Dijkstra's algorithm"],
-          ["Graph Valid Tree", "Medium", "DFS + edge count"],
-          ["Reconstruct Itinerary", "Hard", "Eulerian path + DFS"],
-          ["Accounts Merge", "Medium", "Union-Find / DFS"]
+          ["Subsets", "Medium", "Include / Exclude decision tree", "Product", "subsets"],
+          ["Combinations", "Medium", "Backtracking bounded depth", "Product", "combinations"],
+          ["Permutations", "Medium", "Backtracking with visited array", "Product", "permutations"],
+          ["Combination Sum", "Medium", "Backtracking with candidate reuse", "Product", "combination-sum"],
+          ["Combination Sum II", "Medium", "Backtracking with duplicate skipping", "Product", "combination-sum-ii"],
+          ["Generate Parentheses", "Medium", "Backtracking with open/close counts", "Product", "generate-parentheses"],
+          ["Letter Combinations of a Phone Number", "Medium", "Multi-branch phone digits backtrack", "Product", "letter-combinations-of-a-phone-number"],
+          ["Word Search", "Medium", "2D Grid DFS backtracking with visited mark", "Product", "word-search"],
+          ["Palindrome Partitioning", "Medium", "Backtracking + palindrome verification", "Product", "palindrome-partitioning"],
+          ["N-Queens", "Hard", "Backtracking with column & diagonal sets", "FAANG", "n-queens"]
         ]
       },
       {
-        name: "10. Dynamic Programming",
-        description: "Recursion, memoization, tabulation, knapsack, strings and grids",
+        name: "10. Graphs",
+        description: "BFS/DFS traversals, topological sorting, shortest paths, connected components (10 questions)",
         questions: [
-          ["Climbing Stairs", "Easy", "1D DP / Fibonacci pattern"],
-          ["House Robber", "Medium", "1D DP with skip/take"],
-          ["House Robber II", "Medium", "Circular 1D DP"],
-          ["Coin Change", "Medium", "Unbounded knapsack pattern"],
-          ["Longest Increasing Subsequence", "Medium", "1D DP with comparisons"],
-          ["Partition Equal Subset Sum", "Medium", "0/1 knapsack variant"],
-          ["0/1 Knapsack Problem", "Medium", "Classic 2D DP"],
-          ["Longest Common Subsequence", "Medium", "2D DP on strings"],
-          ["Edit Distance", "Hard", "2D DP with operations"],
-          ["Unique Paths", "Medium", "Grid DP"],
-          ["Minimum Path Sum", "Medium", "Grid DP with costs"],
-          ["Decode Ways", "Medium", "1D DP with conditions"],
-          ["Word Break", "Medium", "1D DP with dictionary"],
-          ["Maximum Product Subarray", "Medium", "DP with min/max tracking"],
-          ["Burst Balloons", "Hard", "Interval DP"]
+          ["Flood Fill", "Easy", "Grid DFS / BFS color replacement", "Base", "flood-fill"],
+          ["Number of Islands", "Medium", "2D Grid DFS / BFS component counting", "Product", "number-of-islands"],
+          ["Rotting Oranges", "Medium", "Multi-source BFS with time queue", "Product", "rotting-oranges"],
+          ["Max Area of Island", "Medium", "Grid DFS area accumulation", "Product", "max-area-of-island"],
+          ["Course Schedule", "Medium", "Cycle detection in directed graph (Kahn's/DFS)", "Product", "course-schedule"],
+          ["Course Schedule II", "Medium", "Topological sort order (Kahn's BFS)", "Product", "course-schedule-ii"],
+          ["Surrounded Regions", "Medium", "Boundary-connected DFS capture", "Product", "surrounded-regions"],
+          ["Network Delay Time", "Medium", "Dijkstra's shortest path with Min-Heap", "Product", "network-delay-time"],
+          ["Clone Graph", "Medium", "DFS / BFS with clone HashMap", "Product", "clone-graph"],
+          ["Word Ladder", "Hard", "Shortest path BFS on word transformations", "FAANG", "word-ladder"]
+        ]
+      },
+      {
+        name: "11. Dynamic Programming",
+        description: "1D/2D memoization, knapsack, subsequences, string transformations (10 questions)",
+        questions: [
+          ["Climbing Stairs", "Easy", "1D DP Fibonacci transition", "Base", "climbing-stairs"],
+          ["Min Cost Climbing Stairs", "Easy", "1D DP running min cost", "Base", "min-cost-climbing-stairs"],
+          ["House Robber", "Medium", "1D DP skip/take decision", "Product", "house-robber"],
+          ["House Robber II", "Medium", "Circular 1D DP (dual linear passes)", "Product", "house-robber-ii"],
+          ["Coin Change", "Medium", "Unbounded knapsack DP (min coins)", "Product", "coin-change"],
+          ["Longest Increasing Subsequence", "Medium", "1D DP / Binary Search Patience sort", "Product", "longest-increasing-subsequence"],
+          ["Partition Equal Subset Sum", "Medium", "0/1 Knapsack boolean subset sum DP", "Product", "partition-equal-subset-sum"],
+          ["Unique Paths", "Medium", "2D Grid DP combinatorial sum", "Product", "unique-paths"],
+          ["Longest Common Subsequence", "Medium", "2D string matrix match/mismatch DP", "Product", "longest-common-subsequence"],
+          ["Edit Distance", "Hard", "2D string DP (insert, delete, replace)", "FAANG", "edit-distance"]
+        ]
+      },
+      {
+        name: "12. Greedy Algorithms",
+        description: "Local optimal choice, interval scheduling, reachability horizons (10 questions)",
+        questions: [
+          ["Assign Cookies", "Easy", "Sort children & cookies greedy matching", "Base", "assign-cookies"],
+          ["Lemonade Change", "Easy", "Greedy bill change denomination priority", "Base", "lemonade-change"],
+          ["Best Time to Buy and Sell Stock II", "Medium", "Peak-valley positive differences sum", "Base", "best-time-to-buy-and-sell-stock-ii"],
+          ["Jump Game", "Medium", "Max reachable index frontier", "Product", "jump-game"],
+          ["Jump Game II", "Medium", "Greedy current jump window exploration", "Product", "jump-game-ii"],
+          ["Gas Station", "Medium", "Single-pass circular total & surplus deficit", "Product", "gas-station"],
+          ["Non-overlapping Intervals", "Medium", "Sort by end-time greedy removal", "Product", "non-overlapping-intervals"],
+          ["Merge Intervals", "Medium", "Sort by start-time interval absorption", "Product", "merge-intervals"],
+          ["Partition Labels", "Medium", "Last occurrence index window expansion", "Product", "partition-labels"],
+          ["Candy", "Hard", "Dual-pass left-to-right & right-to-left greedy", "FAANG", "candy"]
         ]
       }
     ];
@@ -1123,6 +1449,7 @@
     const THEME_KEY = "javaDsaTrackerTheme";
 
     let activeFilter = "all";
+    let activeTier = "all";
     let searchText = "";
     let completedQuestions = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
 
@@ -1136,6 +1463,13 @@
     const completionRate = document.getElementById("completionRate");
     const expandButton = document.getElementById("expandButton");
     const themeButton = document.getElementById("themeButton");
+
+    const tierBaseCount = document.getElementById("tierBaseCount");
+    const tierBaseBar = document.getElementById("tierBaseBar");
+    const tierProductCount = document.getElementById("tierProductCount");
+    const tierProductBar = document.getElementById("tierProductBar");
+    const tierFaangCount = document.getElementById("tierFaangCount");
+    const tierFaangBar = document.getElementById("tierFaangBar");
 
     function createQuestionId(topicIndex, questionIndex) {
       return `topic-${topicIndex}-question-${questionIndex}`;
@@ -1155,7 +1489,9 @@
             topic: topic.name,
             name: question[0],
             difficulty: question[1],
-            pattern: question[2]
+            pattern: question[2],
+            tier: question[3],
+            slug: question[4]
           });
         });
       });
@@ -1166,38 +1502,40 @@
     function matchesFilter(question) {
       const isCompleted = completedQuestions[question.id] === true;
 
-      if (activeFilter === "completed" && !isCompleted) {
-        return false;
+      // Status filter
+      if (activeFilter === "completed" && !isCompleted) return false;
+      if (activeFilter === "pending" && isCompleted) return false;
+
+      // Difficulty filter
+      if (["easy", "medium", "hard"].includes(activeFilter)) {
+        if (question.difficulty.toLowerCase() !== activeFilter) return false;
       }
 
-      if (activeFilter === "pending" && isCompleted) {
-        return false;
+      // Company Tier filter
+      if (activeTier !== "all") {
+        if (question.tier.toLowerCase() !== activeTier) return false;
       }
 
-      if (
-        ["easy", "medium", "hard"].includes(activeFilter) &&
-        question.difficulty.toLowerCase() !== activeFilter
-      ) {
-        return false;
+      // Search text filter
+      if (searchText) {
+        const searchableText = `
+          ${question.name}
+          ${question.topic}
+          ${question.pattern}
+          ${question.difficulty}
+          ${question.tier}
+        `.toLowerCase();
+
+        return searchableText.includes(searchText);
       }
 
-      const searchableText = `
-        ${question.name}
-        ${question.topic}
-        ${question.pattern}
-        ${question.difficulty}
-      `.toLowerCase();
-
-      return searchableText.includes(searchText.toLowerCase());
+      return true;
     }
 
     function updateDashboard() {
       const allQuestions = getAllQuestions();
-      const completed = allQuestions.filter(
-        question => completedQuestions[question.id]
-      ).length;
-
       const total = allQuestions.length;
+      const completed = allQuestions.filter(q => completedQuestions[q.id]).length;
       const remaining = total - completed;
       const percentage = total === 0 ? 0 : Math.round((completed / total) * 100);
 
@@ -1206,8 +1544,27 @@
       remainingCount.textContent = remaining;
       completionRate.textContent = `${percentage}%`;
       overallProgressBar.style.width = `${percentage}%`;
+
+      // Tier Breakdown Stats
+      const baseQuestions = allQuestions.filter(q => q.tier === "Base");
+      const baseDone = baseQuestions.filter(q => completedQuestions[q.id]).length;
+      const basePct = baseQuestions.length ? Math.round((baseDone / baseQuestions.length) * 100) : 0;
+      tierBaseCount.textContent = `${baseDone} / ${baseQuestions.length} (${basePct}%)`;
+      tierBaseBar.style.width = `${basePct}%`;
+
+      const prodQuestions = allQuestions.filter(q => q.tier === "Product");
+      const prodDone = prodQuestions.filter(q => completedQuestions[q.id]).length;
+      const prodPct = prodQuestions.length ? Math.round((prodDone / prodQuestions.length) * 100) : 0;
+      tierProductCount.textContent = `${prodDone} / ${prodQuestions.length} (${prodPct}%)`;
+      tierProductBar.style.width = `${prodPct}%`;
+
+      const faangQuestions = allQuestions.filter(q => q.tier === "FAANG");
+      const faangDone = faangQuestions.filter(q => completedQuestions[q.id]).length;
+      const faangPct = faangQuestions.length ? Math.round((faangDone / faangQuestions.length) * 100) : 0;
+      tierFaangCount.textContent = `${faangDone} / ${faangQuestions.length} (${faangPct}%)`;
+      tierFaangBar.style.width = `${faangPct}%`;
     }
-    // Track open state for each topic so accordion states are preserved during updates
+
     let openTopicIndices = new Set(topics.map((_, i) => i));
 
     function renderTopics() {
@@ -1221,6 +1578,8 @@
             name: question[0],
             difficulty: question[1],
             pattern: question[2],
+            tier: question[3],
+            slug: question[4],
             topic: topic.name,
             questionIndex
           }))
@@ -1238,11 +1597,9 @@
           return completedQuestions[id];
         }).length;
 
-        const topicPercentage = Math.round(
-          (completedInTopic / totalInTopic) * 100
-        );
-
+        const topicPercentage = Math.round((completedInTopic / totalInTopic) * 100);
         const isOpen = openTopicIndices.has(topicIndex);
+
         const topicElement = document.createElement("article");
         topicElement.className = `topic ${isOpen ? "open" : ""}`;
         topicElement.dataset.topicIndex = topicIndex;
@@ -1250,24 +1607,43 @@
         const questionsHTML = visibleQuestions
           .map(question => {
             const isCompleted = completedQuestions[question.id] === true;
-            const difficultyClass = question.difficulty.toLowerCase();
+            const diffClass = question.difficulty.toLowerCase();
+            const tierClass = question.tier.toLowerCase();
+            const leetcodeUrl = `https://leetcode.com/problems/${question.slug}/`;
 
             return `
-              <label class="question ${isCompleted ? "completed" : ""}">
+              <div class="question ${isCompleted ? "completed" : ""}" data-question-id="${question.id}">
                 <input
                   type="checkbox"
                   data-question-id="${question.id}"
                   ${isCompleted ? "checked" : ""}
                 />
 
-                <span class="question-name">${question.name}</span>
+                <div class="question-info">
+                  <span class="question-name" title="${question.name}">${question.name}</span>
+                </div>
 
-                <span class="difficulty ${difficultyClass}">
+                <a
+                  href="${leetcodeUrl}"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="solve-link"
+                  title="Open on LeetCode"
+                  onclick="event.stopPropagation()"
+                >
+                  Solve ↗
+                </a>
+
+                <span class="tier-badge ${tierClass}">
+                  ${question.tier === "Base" ? "Base Tier" : (question.tier === "Product" ? "Product" : "Top Tech")}
+                </span>
+
+                <span class="difficulty ${diffClass}">
                   ${question.difficulty}
                 </span>
 
                 <span class="pattern">${question.pattern}</span>
-              </label>
+              </div>
             `;
           })
           .join("");
@@ -1302,7 +1678,6 @@
         `;
 
         const header = topicElement.querySelector(".topic-header");
-
         header.addEventListener("click", () => {
           const willBeOpen = !topicElement.classList.contains("open");
           topicElement.classList.toggle("open", willBeOpen);
@@ -1318,6 +1693,21 @@
 
       emptyState.style.display = visibleQuestionCount === 0 ? "block" : "none";
 
+      // Row click to toggle checkbox
+      document.querySelectorAll(".question").forEach(row => {
+        row.addEventListener("click", event => {
+          if (event.target.tagName === "INPUT" || event.target.tagName === "A") {
+            return;
+          }
+          const checkbox = row.querySelector('input[type="checkbox"]');
+          if (checkbox) {
+            checkbox.checked = !checkbox.checked;
+            checkbox.dispatchEvent(new Event("change", { bubbles: true }));
+          }
+        });
+      });
+
+      // Checkbox event listeners
       document.querySelectorAll('input[type="checkbox"][data-question-id]')
         .forEach(checkbox => {
           checkbox.addEventListener("change", event => {
@@ -1330,13 +1720,11 @@
             saveProgress();
             updateDashboard();
 
-            // Smooth inline visual update
             const questionRow = checkbox.closest(".question");
             if (questionRow) {
               questionRow.classList.toggle("completed", isChecked);
             }
 
-            // Smoothly update this topic's counter and progress bar
             const currentTopic = checkbox.closest(".topic");
             if (currentTopic) {
               const allBoxes = currentTopic.querySelectorAll('input[type="checkbox"]');
@@ -1353,7 +1741,6 @@
               }
             }
 
-            // If filtered by pending or completed, delay re-render slightly to show check animation
             if (activeFilter === "completed" || activeFilter === "pending") {
               setTimeout(() => {
                 renderTopics();
@@ -1369,18 +1756,38 @@
     }
 
     searchInput.addEventListener("input", event => {
-      searchText = event.target.value.trim();
+      searchText = event.target.value.trim().toLowerCase();
       renderTopics();
     });
 
-    document.querySelectorAll(".filter-btn").forEach(button => {
+    // Difficulty & Status filter buttons
+    document.querySelectorAll(".filter-btn[data-filter]").forEach(button => {
       button.addEventListener("click", () => {
-        document.querySelectorAll(".filter-btn").forEach(btn => {
+        document.querySelectorAll(".filter-btn[data-filter]").forEach(btn => {
           btn.classList.remove("active");
         });
 
         button.classList.add("active");
         activeFilter = button.dataset.filter;
+        renderTopics();
+      });
+    });
+
+    // Company Tier filter buttons
+    document.querySelectorAll(".filter-btn[data-tier]").forEach(button => {
+      button.addEventListener("click", () => {
+        document.querySelectorAll(".filter-btn[data-tier]").forEach(btn => {
+          btn.classList.remove("active", "tier-active-base", "tier-active-product", "tier-active-faang");
+        });
+
+        const tier = button.dataset.tier;
+        activeTier = tier;
+
+        button.classList.add("active");
+        if (tier === "base") button.classList.add("tier-active-base");
+        if (tier === "product") button.classList.add("tier-active-product");
+        if (tier === "faang") button.classList.add("tier-active-faang");
+
         renderTopics();
       });
     });
@@ -1404,7 +1811,7 @@
 
     document.getElementById("resetButton").addEventListener("click", () => {
       const confirmed = confirm(
-        "Do you want to reset all completed questions? This cannot be undone."
+        "Are you sure you want to reset all completed questions? This will erase your checkmarks."
       );
 
       if (confirmed) {
@@ -1425,9 +1832,7 @@
 
     themeButton.addEventListener("click", () => {
       document.body.classList.toggle("dark");
-
       const isDark = document.body.classList.contains("dark");
-
       localStorage.setItem(THEME_KEY, isDark ? "dark" : "light");
       themeButton.textContent = isDark ? "☀️ Light Mode" : "🌙 Dark Mode";
     });
